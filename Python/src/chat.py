@@ -11,6 +11,8 @@ from semantic_kernel.connectors.ai.chat_completion_client_base import ChatComple
 from semantic_kernel.connectors.ai.open_ai import OpenAIChatPromptExecutionSettings
 import os
 from plugins.time_plugin import TimePlugin
+from plugins.geo_coding_plugin import GeoPlugin  # Add this import statement
+from plugins.weather_plugin import WeatherPlugin  # Add this import at the top of the file
 from semantic_kernel.connectors.ai.open_ai.prompt_execution_settings.azure_chat_prompt_execution_settings import (
     AzureChatPromptExecutionSettings,
 )
@@ -59,6 +61,17 @@ async def process_message(user_input):
     time_plugin = TimePlugin()
     kernel.add_plugin(time_plugin, plugin_name="TimePlugin")
     logger.info("Time plugin loaded")
+
+    kernel.add_plugin(
+          GeoPlugin(),
+          plugin_name="GeoLocation",
+    )
+
+    kernel.add_plugin(
+        WeatherPlugin(),
+        plugin_name="Weather",
+    )
+    logger.info("Weather plugin loaded")
 
     # Add user input to chat history
     global chat_history
