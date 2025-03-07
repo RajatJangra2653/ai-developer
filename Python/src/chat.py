@@ -10,6 +10,10 @@ from semantic_kernel.functions import KernelArguments
 from semantic_kernel.connectors.ai.chat_completion_client_base import ChatCompletionClientBase
 from semantic_kernel.connectors.ai.open_ai import OpenAIChatPromptExecutionSettings
 import os
+from plugins.time_plugin import TimePlugin
+from semantic_kernel.connectors.ai.open_ai.prompt_execution_settings.azure_chat_prompt_execution_settings import (
+    AzureChatPromptExecutionSettings,
+)
 
 # Add Logger
 logger = logging.getLogger(__name__)
@@ -46,37 +50,34 @@ def initialize_kernel():
 async def process_message(user_input):
     kernel = initialize_kernel()
 
-    #Challenge 03 and 04 - Services Required
-    #Challenge 03 - Create Prompt Execution Settings
+    # Challenge 03 - Create Prompt Execution Settings
+    execution_settings = AzureChatPromptExecutionSettings()
+    execution_settings.function_choice_behavior = FunctionChoiceBehavior.Auto()
+    logger.info("Automatic function calling enabled")
 
     # Challenge 03 - Add Time Plugin
-    # Placeholder for Time plugin
+    time_plugin = TimePlugin()
+    kernel.add_plugin(time_plugin, plugin_name="TimePlugin")
+    logger.info("Time plugin loaded")
 
-    # Challenge 04 - Import OpenAPI Spec
-    # Placeholder for OpenAPI plugin
-
-    # Challenge 05 - Add Search Plugin
-
-    # Challenge 06- Semantic kernel filters
-
-    # Challenge 07 - Text To Image Plugin
-    # Placeholder for Text To Image plugin
-
-    # Start Challenge 02 - Sending a message to the chat completion service by invoking kernel
-    global chat_history  # Use the global chat history
+    # Add user input to chat history
+    global chat_history
     chat_history.add_user_message(user_input)
 
+    # Get the chat completion service
     chat_completion = kernel.get_service(type=ChatCompletionClientBase)
-    execution_settings = kernel.get_prompt_execution_settings_from_service_id("chat-service")
-
+    
+    # Make sure to pass the execution_settings with AUTO function calling
+    # and pass kernel to allow access to the functions
     response = await chat_completion.get_chat_message_content(
         chat_history=chat_history,
         settings=execution_settings,
+        kernel=kernel  # Pass the kernel with the registered plugin
     )
 
-    # Add the AI's response to the chat history for future context
+    # Add the AI's response to the chat history
     chat_history.add_assistant_message(str(response))
-
+    
     logger.info(f"Response: {response}")
     return response
 
