@@ -2,7 +2,7 @@ import asyncio
 import logging
 from dotenv import load_dotenv
 from semantic_kernel import Kernel
-from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion, OpenAITextToImage
+from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion, OpenAITextToImage, AzureTextEmbedding
 from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
 from semantic_kernel.connectors.openapi_plugin import OpenAPIFunctionExecutionParameters
 from semantic_kernel.contents.chat_history import ChatHistory
@@ -11,8 +11,9 @@ from semantic_kernel.connectors.ai.chat_completion_client_base import ChatComple
 from semantic_kernel.connectors.ai.open_ai import OpenAIChatPromptExecutionSettings
 import os
 from plugins.time_plugin import TimePlugin
-from plugins.geo_coding_plugin import GeoPlugin  # Add this import statement
-from plugins.weather_plugin import WeatherPlugin  # Add this import at the top of the file
+from plugins.geo_coding_plugin import GeoPlugin
+from plugins.weather_plugin import WeatherPlugin
+from plugins.ContosoSearchPlugin import ContosoSearchPlugin  # Add this import
 from semantic_kernel.connectors.ai.open_ai.prompt_execution_settings.azure_chat_prompt_execution_settings import (
     AzureChatPromptExecutionSettings,
 )
@@ -32,12 +33,22 @@ def initialize_kernel():
     chat_completion_service = AzureChatCompletion(
         deployment_name=os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT_NAME"),
         api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-        endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),  # Used to point to your service
+        endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
         service_id="chat-service",
     )
 
     # Add the chat completion service to the kernel
     kernel.add_service(chat_completion_service)
+
+    # Add Text Embedding service for semantic search
+    text_embedding_service = AzureTextEmbedding(
+        deployment_name=os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT", "text-embedding-ada-002"),
+        api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+        endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+        service_id="embedding-service"
+    )
+    kernel.add_service(text_embedding_service)
+    logger.info("Text Embedding service added")
 
     # Retrieve the chat completion service by type
     chat_completion_service = kernel.get_service(type=ChatCompletionClientBase)
@@ -73,6 +84,13 @@ async def process_message(user_input):
         plugin_name="Weather",
     )
     logger.info("Weather plugin loaded")
+    
+    # Add Contoso Handbook Search Plugin
+    kernel.add_plugin(
+        ContosoSearchPlugin(),
+        plugin_name="ContosoSearch",
+    )
+    logger.info("Contoso Handbook Search plugin loaded")
 
     kernel.add_plugin_from_openapi(
         plugin_name="get_tasks",
