@@ -66,12 +66,23 @@ async def process_message(user_input):
           GeoPlugin(),
           plugin_name="GeoLocation",
     )
+    logger.info("GeoLocation plugin loaded")
 
     kernel.add_plugin(
         WeatherPlugin(),
         plugin_name="Weather",
     )
     logger.info("Weather plugin loaded")
+
+    kernel.add_plugin_from_openapi(
+        plugin_name="get_tasks",
+        openapi_document_path="http://127.0.0.1:8000/openapi.json",
+        execution_settings=OpenAPIFunctionExecutionParameters(
+            enable_payload_namespacing=True,
+        )
+    )
+
+
 
     # Add user input to chat history
     global chat_history
