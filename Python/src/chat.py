@@ -14,9 +14,12 @@ from plugins.time_plugin import TimePlugin
 from plugins.geo_coding_plugin import GeoPlugin
 from plugins.weather_plugin import WeatherPlugin
 from plugins.ContosoSearchPlugin import ContosoSearchPlugin  # Add this import
+from plugins.ImageGenerationPlugin import ImageGenerationPlugin
+from semantic_kernel.connectors.ai.open_ai import AzureTextToImage
 from semantic_kernel.connectors.ai.open_ai.prompt_execution_settings.azure_chat_prompt_execution_settings import (
     AzureChatPromptExecutionSettings,
 )
+from semantic_kernel.connectors.ai.open_ai import OpenAITextToImage  # Add this import and keep the existing OpenAITextToImage
 
 # Add Logger
 logger = logging.getLogger(__name__)
@@ -49,6 +52,16 @@ def initialize_kernel():
     )
     kernel.add_service(text_embedding_service)
     logger.info("Text Embedding service added")
+
+    # Add DALL-E image generation service
+    image_generation_service = AzureTextToImage(
+        deployment_name=os.getenv("AZURE_TEXT_TO_IMAGE_DEPLOYMENT_NAME"),
+        api_key=os.getenv("AZURE_TEXT_TO_IMAGE_API_KEY"),
+        endpoint=os.getenv("AZURE_TEXT_TO_IMAGE_ENDPOINT"),
+        service_id="image-service"
+    )
+    kernel.add_service(image_generation_service)
+    logger.info("DALL-E image generation service added")
 
     # Retrieve the chat completion service by type
     chat_completion_service = kernel.get_service(type=ChatCompletionClientBase)
@@ -91,6 +104,13 @@ async def process_message(user_input):
         plugin_name="ContosoSearch",
     )
     logger.info("Contoso Handbook Search plugin loaded")
+    
+    # Add Image Generation Plugin
+    kernel.add_plugin(
+        ImageGenerationPlugin(),
+        plugin_name="ImageGeneration",
+    )
+    logger.info("Image Generation plugin loaded")
 
     kernel.add_plugin_from_openapi(
         plugin_name="get_tasks",
