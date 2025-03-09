@@ -106,8 +106,11 @@ async def process_message(user_input):
     logger.info("Contoso Handbook Search plugin loaded")
     
     # Add Image Generation Plugin
+    image_plugin = ImageGenerationPlugin()
+    # Set the kernel directly on the plugin instance
+    image_plugin.set_kernel(kernel)
     kernel.add_plugin(
-        ImageGenerationPlugin(),
+        image_plugin,
         plugin_name="ImageGeneration",
     )
     logger.info("Image Generation plugin loaded")
@@ -119,7 +122,6 @@ async def process_message(user_input):
             enable_payload_namespacing=True,
         )
     )
-
 
 
     # Add user input to chat history
@@ -146,3 +148,25 @@ async def process_message(user_input):
 def reset_chat_history():
     global chat_history
     chat_history = ChatHistory()
+
+async def test_image_generation(prompt="A cute cat wearing a hat"):
+    """Test function to directly generate an image"""
+    kernel = initialize_kernel()
+    
+    # Create and register the plugin
+    image_plugin = ImageGenerationPlugin()
+    image_plugin.set_kernel(kernel)
+    kernel.add_plugin(image_plugin, plugin_name="ImageGeneration")
+    
+    # Call the generate_image function directly
+    try:
+        logger.info(f"Testing image generation with prompt: {prompt}")
+        result = await image_plugin.generate_image(prompt=prompt, kernel=kernel)
+        logger.info(f"Image generation test result: {result}")
+        return result
+    except Exception as e:
+        logger.error(f"Image generation test failed: {str(e)}")
+        return f"Error: {str(e)}"
+
+# Example usage:
+# asyncio.run(test_image_generation("A beautiful mountain landscape"))
