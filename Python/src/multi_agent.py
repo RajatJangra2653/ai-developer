@@ -3,59 +3,22 @@ import asyncio
 from dotenv import load_dotenv
 
 from semantic_kernel.agents import AgentGroupChat, ChatCompletionAgent
-from semantic_kernel.agents.strategies.termination.termination_strategy import TerminationStrategy
-from semantic_kernel.agents.strategies.termination.default_termination_strategy import DefaultTerminationStrategy
-from semantic_kernel.agents.strategies.selection.kernel_function_selection_strategy import (
-    KernelFunctionSelectionStrategy,
-)
-from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
+from semantic_kernel.agents.strategies.termination.kernel_function_termination_strategy import KernelFunctionTerminationStrategy
+from semantic_kernel.agents.strategies.selection.kernel_function_selection_strategy import KernelFunctionSelectionStrategy
 from semantic_kernel.connectors.ai.open_ai.services.azure_chat_completion import AzureChatCompletion
 from semantic_kernel.contents.chat_message_content import ChatMessageContent
 from semantic_kernel.contents.utils.author_role import AuthorRole
 from semantic_kernel.kernel import Kernel
-
-
-class ApprovalTerminationStrategy(TerminationStrategy):
-    """A strategy for determining when an agent should terminate."""
- 
-    def __init__(self, maximum_iterations=20):
-        """Initialize with a maximum number of iterations as a safety mechanism."""
-        self.maximum_iterations = maximum_iterations
-        self.current_iterations = 0
- 
-    async def should_agent_terminate(self, agent, history):
-        """Check if the agent should terminate."""
-        # Increment iteration counter
-        self.current_iterations += 1
-        
-        # Check for maximum iterations as a safety measure
-        if self.current_iterations >= self.maximum_iterations:
-            print("Maximum iterations reached. Terminating conversation.")
-            return True
-            
-        # Check if history exists and has messages
-        if not history or len(history) == 0:
-            return False
-            
-        # Get the last message in the history
-        last_message = history[-1]
-        
-        # Check if the last message contains the approval token
-        if isinstance(last_message, ChatMessageContent) and "%APPR%" in last_message.content:
-            return True
-            
-        return False
+from semantic_kernel.functions.kernel_function_metadata import KernelFunctionMetadata
+from semantic_kernel.functions.kernel_function import KernelFunction
 
 
 async def run_multi_agent(input: str):
     """Implement the multi-agent system."""
-    # Load environment variables
-    load_dotenv()
     
-    # Create Kernel
+    load_dotenv()
     kernel = Kernel()
     
-    # Add chat completion service
     chat_completion_service = AzureChatCompletion(
         deployment_name=os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT_NAME"),
         api_key=os.getenv("AZURE_OPENAI_API_KEY"),
@@ -71,7 +34,7 @@ requirements and creates detailed documents with requirements and costing. The d
 usable by the SoftwareEngineer as a reference for implementing the required features, and by the 
 Product Owner for reference to determine if the application delivered by the Software Engineer meets
 all of the user's requirements."""
-
+    
     software_engineer_persona = """You are a Software Engineer, and your goal is create a web app using HTML and JavaScript
 by taking into consideration all the requirements given by the Business Analyst. The application should
 implement all the requested features. Deliver the code to the Product Owner for review when completed.
@@ -89,45 +52,102 @@ the token %APPR%."""
     business_analyst = ChatCompletionAgent(
         name="BusinessAnalyst",
         kernel=kernel,
-        persona=business_analyst_persona,
-        auto_function_calling=FunctionChoiceBehavior.Auto(),
     )
-    
     software_engineer = ChatCompletionAgent(
         name="SoftwareEngineer",
         kernel=kernel,
-        persona=software_engineer_persona,
-        auto_function_calling=FunctionChoiceBehavior.Auto(),
     )
-    
     product_owner = ChatCompletionAgent(
         name="ProductOwner",
         kernel=kernel,
-        persona=product_owner_persona,
-        auto_function_calling=FunctionChoiceBehavior.Auto(),
     )
     
-    # Create agent group chat with termination strategy
+    # Create functions using KernelFunction directly
+    # Create termination function
+    termination_prompt = """
+    Check the conversation history for a message by the ProductOwner containing "%APPR%". 
+    If found, respond with 'yes' to indicate termination. Otherwise, respond with 'no'.
+
+    History:
+    {{$history}}
+    """
+    
+    # Create a termination function
+    termination_function = KernelFunction.from_prompt(
+        plugin_name="ConversationManager",  # Add this required parameter
+        prompt=termination_prompt,
+        function_name="termination",
+        description="Determines if conversation should terminate based on approval"
+    )
+    kernel.add_function(termination_function)
+    
+    # Create selection function
+    selection_prompt = """
+    Based on the conversation history, determine which agent should speak next.
+    Consider the following:
+    - If this is the start of the conversation, the {BusinessAnalyst} should speak first to understand requirements
+    - If the BusinessAnalyst has outlined requirements, the {SoftwareEngineer} should implement them
+    - If the {SoftwareEngineer} has presented code, the {ProductOwner} should review it
+    - If the {ProductOwner} has requested changes, the {SoftwareEngineer} should address them
+    - If there are requirement questions, the {BusinessAnalyst} should clarify
+    
+    Return only the name of the agent who should speak next: BusinessAnalyst, SoftwareEngineer, or ProductOwner.
+    
+    History:
+    {{$history}}
+    
+    Last agent to speak: {{$last_agent}}
+    """
+    
+    selection_function = KernelFunction.from_prompt(
+        plugin_name="ConversationManager",  # Add this required parameter
+        prompt=selection_prompt,
+        function_name="selection", 
+        description="Determines which agent should speak next in the conversation"
+    )
+    kernel.add_function(selection_function)
+
+    # Create a helper function for creating a kernel with chat completion
+    def _create_kernel_with_chat_completion(function_name):
+        """Create a kernel with chat completion service for the specified function."""
+        temp_kernel = Kernel()
+        temp_kernel.add_service(AzureChatCompletion(
+            deployment_name=os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT_NAME"),
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+            service_id="chat-service",
+        ))
+        return temp_kernel
+
+    # Create agent group chat with both termination and selection functions
     group_chat = AgentGroupChat(
         agents=[business_analyst, software_engineer, product_owner],
-        termination_strategy=ApprovalTerminationStrategy(maximum_iterations=20),
-        next_agent_selection_strategy=KernelFunctionSelectionStrategy(kernel=kernel),
+        termination_strategy=KernelFunctionTerminationStrategy(
+            agents=[product_owner],  # Only the ProductOwner can approve and terminate
+            kernel=kernel,  # Use the main kernel instead of creating a new one
+            function=termination_function,  # Use the termination function we created
+            result_parser=lambda result: str(result.value[0]).lower() == "yes",
+            history_variable_name="history",
+            maximum_iterations=20
+        ),
+        next_agent_selection_strategy=KernelFunctionSelectionStrategy(
+            kernel=kernel,
+            function=selection_function,  # Use the selection function we created
+            history_variable_name="history",
+        )
     )
     
-    # Set initial messages for the chat
-    messages = [ChatMessageContent(
-        role=AuthorRole.USER,
-        content=input,
-        author="User"
-    )]
+    # Inject personas as system messages
+    messages = [
+        ChatMessageContent(role=AuthorRole.SYSTEM, content=business_analyst_persona, author="BusinessAnalyst"),
+        ChatMessageContent(role=AuthorRole.SYSTEM, content=software_engineer_persona, author="SoftwareEngineer"),
+        ChatMessageContent(role=AuthorRole.SYSTEM, content=product_owner_persona, author="ProductOwner"),
+        ChatMessageContent(role=AuthorRole.USER, content=input, author="User"),
+    ]
     
-    # Create a list to collect all responses
     responses = []
-    
-    # Execute the conversation using async iterator with simpler pattern
     print("Starting multi-agent conversation...")
     
-    # Start the conversation
     async for msg in group_chat.invoke_async(messages):
         if isinstance(msg, ChatMessageContent):
             print(f"# {msg.role} - {msg.name or msg.author or '*'}: '{msg.content}'")
