@@ -65,9 +65,6 @@ class ImageGenerationPlugin:
             if not os.path.isdir(image_dir):
                 os.mkdir(image_dir)
 
-            # Initialize the image path
-            image_path = os.path.join(image_dir, 'generated_image.png')
-
             # Properly handle the result based on its type
             try:
                 # For newer SDK versions that return a string
@@ -82,32 +79,16 @@ class ImageGenerationPlugin:
                 print(f"API Response: {json_response}")
                 
                 image_url = json_response["data"][0]["url"]  # extract image URL from response
-                generated_image = httpx.get(image_url).content  # download the image
-
-                with open(image_path, "wb") as image_file:
-                    image_file.write(generated_image)
-
-                # Display the image in the default image viewer
-                image = Image.open(image_path)
-                image.show()
-
-                return f"Image generated successfully! URL: {image_url}"
+                return image_url
+                
             except Exception as e:
                 # If we can't parse the response properly, log it and return it as-is
                 print(f"Error processing image response: {str(e)}")
                 print(f"Raw response: {result}")
                 
-                # Try a direct approach if the result is already the URL
-                if result.startswith("http"):
-                    try:
-                        generated_image = httpx.get(result).content
-                        with open(image_path, "wb") as image_file:
-                            image_file.write(generated_image)
-                        image = Image.open(image_path)
-                        image.show()
-                        return f"Image generated successfully! URL: {result}"
-                    except:
-                        pass
+                # If the result is already the URL, return it directly
+                if isinstance(result, str) and result.startswith("http"):
+                    return result
                         
                 return f"Image response received but couldn't process it: {result}"
 
