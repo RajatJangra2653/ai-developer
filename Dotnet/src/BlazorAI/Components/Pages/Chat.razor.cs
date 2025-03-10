@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
+using Microsoft.SemanticKernel.Connectors.OpenAI;
+using BlazorAI.Plugins;
+using System;
 
 #pragma warning disable SKEXP0040 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 #pragma warning disable SKEXP0020 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
@@ -13,6 +16,7 @@ public partial class Chat
 {
     private ChatHistory? chatHistory;
     private Kernel? kernel;
+    private OpenAIPromptExecutionSettings? promptSettings;
 
     [Inject]
     public required IConfiguration Configuration { get; set; }
@@ -21,8 +25,8 @@ public partial class Chat
 
     protected async Task InitializeSemanticKernel()
     {
-        chatHistory = [];
-
+        // Initialize chat history with a system message about available functions
+        chatHistory = new ChatHistory();
         // Challenge 02 - Configure Semantic Kernel
         var kernelBuilder = Kernel.CreateBuilder();
 
@@ -40,12 +44,9 @@ public partial class Chat
 
         // Challenge 05 - Register Azure AI Foundry Text Embeddings Generation
 
-
         // Challenge 05 - Register Search Index
 
-
         // Challenge 07 - Add Azure AI Foundry Text To Image
-
 
         // Challenge 02 - Finalize Kernel Builder
         kernel = kernelBuilder.Build();
@@ -53,18 +54,22 @@ public partial class Chat
         // Challenge 03, 04, 05, & 07 - Add Plugins
         await AddPlugins();
 
-        // Challenge 02 - Chat Completion Service
-
-
-        // Challenge 03 - Create OpenAIPromptExecutionSettings
-
-
+        // Challenge 03 - Create OpenAIPromptExecutionSettings for automatic function calling
+        promptSettings = new OpenAIPromptExecutionSettings
+        {
+            // Use this setting to let the model automatically invoke functions
+            ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions,
+            Temperature = 0.7,
+            TopP = 0.95,
+            MaxTokens = 800
+        };
     }
-
 
     private async Task AddPlugins()
     {
         // Challenge 03 - Add Time Plugin
+        var timePlugin = new BlazorAI.Plugins.TimePlugin();
+        kernel.ImportPluginFromObject(timePlugin, "TimePlugin");
 
         // Challenge 04 - Import OpenAPI Spec
 
@@ -86,22 +91,20 @@ public partial class Chat
             newMessage = string.Empty;
             StateHasChanged();
 
-            // Start Challenge 02 - Sending a message to the chat completion service
-
             // Add user message to chat history
             chatHistory.AddUserMessage(userMessage);
 
             // Get chat completion service from kernel
             var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
 
-            // Send the message to get assistant response
+            // Send the message to get assistant response with explicit kernel parameter
             var assistantResponse = await chatCompletionService.GetChatMessageContentAsync(
-                chatHistory: chatHistory);
+                chatHistory: chatHistory,
+                executionSettings: promptSettings,
+                kernel: kernel);  // Pass the kernel explicitly
 
             // Add the assistant's response to the chat history
             chatHistory.AddAssistantMessage(assistantResponse.Content);
-
-            // End Challenge 02 - Sending a message to the chat completion service
 
             loading = false;
         }
