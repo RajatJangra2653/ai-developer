@@ -100,12 +100,12 @@ namespace BlazorAI.Plugins
         public async Task<string> GetForecastWithPluginsAsync(
             [Description("The kernel instance to use for calling other plugins")] Kernel kernel,
             [Description("The location name (city, address, etc.)")] string location,
-            [Description("The day of the week to get forecast for, or number of days in future")] string daySpec = "0")
+            [Description("The day of the week to get forecast for (e.g. 'Thursday', 'next Tuesday'), number of days in future, or leave empty for today's forecast")] string daySpec = "")
         {
             try
             {
                 // Step 1: Get current date from Time Plugin
-                var dateResult = await kernel.InvokeAsync("Time", "GetDate");
+                var dateResult = await kernel.InvokeAsync("TimePlugin", "GetDate");
                 string? todayStr = dateResult.GetValue<string>();
                 if (todayStr == null)
                 {
@@ -114,24 +114,64 @@ namespace BlazorAI.Plugins
                 DateTime today = DateTime.Parse(todayStr);
                 
                 // Step 2: Calculate target day based on specification
-                int daysInFuture;
-                if (int.TryParse(daySpec, out daysInFuture))
+                int daysInFuture = 0; // Default to today if no specification is provided
+                
+                // Only process daySpec if it's not empty
+                if (!string.IsNullOrWhiteSpace(daySpec))
                 {
-                    // If daySpec is a number, use it directly
-                }
-                else if (Enum.TryParse<DayOfWeek>(daySpec, true, out var targetDay))
-                {
-                    // Calculate days until the next occurrence of the target day
-                    daysInFuture = ((int)targetDay - (int)today.DayOfWeek + 7) % 7;
-                    if (daysInFuture == 0) daysInFuture = 7; // If today is the target day, get next week
-                }
-                else
-                {
-                    return $"Invalid day specification: {daySpec}. Please provide a day name or number of days.";
+                    // Handle "next [day]" format
+                    string dayName = daySpec;
+                    bool isNextWeek = false;
+                    
+                    if (daySpec.StartsWith("next ", StringComparison.OrdinalIgnoreCase))
+                    {
+                        dayName = daySpec.Substring(5); // Remove "next " prefix
+                        isNextWeek = true;
+                    }
+                    
+                    if (int.TryParse(dayName, out int parsedDays))
+                    {
+                        // If daySpec is a number, use it directly
+                        daysInFuture = parsedDays;
+                    }
+                    else if (dayName.Equals("today", StringComparison.OrdinalIgnoreCase))
+                    {
+                        daysInFuture = 0; // Explicitly handle "today"
+                    }
+                    else if (dayName.Equals("tomorrow", StringComparison.OrdinalIgnoreCase))
+                    {
+                        daysInFuture = 1; // Explicitly handle "tomorrow"
+                    }
+                    else if (Enum.TryParse<DayOfWeek>(dayName, true, out var targetDay))
+                    {
+                        // Calculate days until the next occurrence of the target day
+                        daysInFuture = ((int)targetDay - (int)today.DayOfWeek + 7) % 7;
+                        
+                        // If today is the target day and we want today's forecast, use 0
+                        if (daysInFuture == 0 && !isNextWeek) 
+                        {
+                            // Keep it as 0 for today
+                        }
+                        // If today is the target day but we want next week, use 7
+                        else if (daysInFuture == 0) 
+                        {
+                            daysInFuture = 7;
+                        }
+                        // If "next [day]" was specified and the day occurs within this week,
+                        // add 7 days to get to next week's occurrence
+                        else if (isNextWeek)
+                        {
+                            daysInFuture += 7;
+                        }
+                    }
+                    else
+                    {
+                        return $"Invalid day specification: {daySpec}. Please provide a day name (e.g. 'Thursday', 'next Tuesday'), 'today', 'tomorrow', a number of days, or leave empty for today's forecast.";
+                    }
                 }
                 
                 // Step 3: Get location coordinates from Geocoding Plugin
-                var locationResult = await kernel.InvokeAsync("Geocoding", "GetLocation", new() { ["location"] = location });
+                var locationResult = await kernel.InvokeAsync("GeocodingPlugin", "GetLocation", new() { ["location"] = location });
                 string? locationJson = locationResult.GetValue<string>();
                 
                 if (locationJson == null)
