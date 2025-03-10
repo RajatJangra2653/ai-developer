@@ -4,6 +4,7 @@ using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using BlazorAI.Plugins;
 using System;
+using Microsoft.SemanticKernel.Plugins.OpenApi; // Add this line
 
 #pragma warning disable SKEXP0040 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 #pragma warning disable SKEXP0020 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
@@ -81,9 +82,17 @@ public partial class Chat
         var weatherPlugin = new WeatherPlugin(
             kernel.Services.GetRequiredService<IHttpClientFactory>());
         kernel.ImportPluginFromObject(weatherPlugin, "WeatherPlugin");
-
+        
         // Challenge 04 - Import OpenAPI Spec
-
+        // Create the OpenAPI plugin from the specified URL
+        await kernel.ImportPluginFromOpenApiAsync(
+            pluginName: "todo",
+            uri: new Uri("http://localhost:5115/swagger/v1/swagger.json"),
+            executionParameters: new OpenApiFunctionExecutionParameters()
+            {
+                EnablePayloadNamespacing = true
+            }
+        );
         // Challenge 05 - Add Search Plugin
 
         // Challenge 07 - Text To Image Plugin
