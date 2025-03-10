@@ -88,7 +88,18 @@ public partial class Chat
 
             // Start Challenge 02 - Sending a message to the chat completion service
 
-            // Your code goes here
+            // Add user message to chat history
+            chatHistory.AddUserMessage(userMessage);
+
+            // Get chat completion service from kernel
+            var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
+
+            // Send the message to get assistant response
+            var assistantResponse = await chatCompletionService.GetChatMessageContentAsync(
+                chatHistory: chatHistory);
+
+            // Add the assistant's response to the chat history
+            chatHistory.AddAssistantMessage(assistantResponse.Content);
 
             // End Challenge 02 - Sending a message to the chat completion service
 
