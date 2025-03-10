@@ -70,13 +70,23 @@ public partial class Chat
         // Challenge 03 - Add Time Plugin
         var timePlugin = new BlazorAI.Plugins.TimePlugin();
         kernel.ImportPluginFromObject(timePlugin, "TimePlugin");
+        
+        // Add Geocoding Plugin
+        var geocodingPlugin = new GeocodingPlugin(
+            kernel.Services.GetRequiredService<IHttpClientFactory>(), 
+            Configuration);
+        kernel.ImportPluginFromObject(geocodingPlugin, "GeocodingPlugin");
+        
+        // Add Weather Plugin
+        var weatherPlugin = new WeatherPlugin(
+            kernel.Services.GetRequiredService<IHttpClientFactory>());
+        kernel.ImportPluginFromObject(weatherPlugin, "WeatherPlugin");
 
         // Challenge 04 - Import OpenAPI Spec
 
         // Challenge 05 - Add Search Plugin
 
         // Challenge 07 - Text To Image Plugin
-
     }
 
     private async Task SendMessage()
