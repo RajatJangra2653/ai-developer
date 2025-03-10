@@ -5,6 +5,7 @@ using Microsoft.SemanticKernel.Connectors.OpenAI;
 using BlazorAI.Plugins;
 using System;
 using Microsoft.SemanticKernel.Plugins.OpenApi; // Add this line
+using Microsoft.SemanticKernel.Connectors.AzureAISearch;
 
 #pragma warning disable SKEXP0040 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 #pragma warning disable SKEXP0020 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
@@ -44,6 +45,10 @@ public partial class Chat
         kernelBuilder.Services.AddHttpClient();
 
         // Challenge 05 - Register Azure AI Foundry Text Embeddings Generation
+        kernelBuilder.AddAzureOpenAITextEmbeddingGeneration(
+            Configuration["EMBEDDINGS_DEPLOYMODEL"]!,
+            Configuration["AOI_ENDPOINT"]!,
+            Configuration["AOI_API_KEY"]!);
 
         // Challenge 05 - Register Search Index
 
