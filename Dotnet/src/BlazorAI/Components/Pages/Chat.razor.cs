@@ -6,6 +6,9 @@ using BlazorAI.Plugins;
 using System;
 using Microsoft.SemanticKernel.Plugins.OpenApi; // Add this line
 using Microsoft.SemanticKernel.Connectors.AzureAISearch;
+using Azure;
+using Azure.Search.Documents.Indexes;
+using Microsoft.Extensions.DependencyInjection;
 
 #pragma warning disable SKEXP0040 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 #pragma warning disable SKEXP0020 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
@@ -49,8 +52,26 @@ public partial class Chat
             Configuration["EMBEDDINGS_DEPLOYMODEL"]!,
             Configuration["AOI_ENDPOINT"]!,
             Configuration["AOI_API_KEY"]!);
-
+            
         // Challenge 05 - Register Search Index
+        kernelBuilder.Services.AddSingleton<SearchIndexClient>(sp => 
+            new SearchIndexClient(
+                new Uri(Configuration["AI_SEARCH_URL"]!), 
+                new AzureKeyCredential(Configuration["AI_SEARCH_KEY"]!)
+            )
+        );
+
+        kernelBuilder.Services.AddSingleton<AzureAISearchVectorStoreRecordCollection<Dictionary<string, object>>>(sp =>
+        {
+            var searchIndexClient = sp.GetRequiredService<SearchIndexClient>();
+            return new AzureAISearchVectorStoreRecordCollection<Dictionary<string, object>>(
+                searchIndexClient,
+                "employeehandbook" // Using static value instead of configuration
+            );
+        });
+
+        // Add the vector store to the kernel
+        kernelBuilder.AddAzureAISearchVectorStore();
 
         // Challenge 07 - Add Azure AI Foundry Text To Image
 
@@ -98,7 +119,10 @@ public partial class Chat
                 EnablePayloadNamespacing = true
             }
         );
+        
         // Challenge 05 - Add Search Plugin
+        var searchPlugin = new ContosoSearchPlugin(Configuration);
+        kernel.ImportPluginFromObject(searchPlugin, "HandbookPlugin");
 
         // Challenge 07 - Text To Image Plugin
     }
