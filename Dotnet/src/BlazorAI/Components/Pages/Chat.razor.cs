@@ -74,6 +74,10 @@ public partial class Chat
         kernelBuilder.AddAzureAISearchVectorStore();
 
         // Challenge 07 - Add Azure AI Foundry Text To Image
+        kernelBuilder.AddAzureOpenAITextToImage(
+            Configuration["DALLE_DEPLOYMODEL"]!,
+            Configuration["AOI_ENDPOINT"]!,
+            Configuration["AOI_API_KEY"]!);
 
         // Challenge 02 - Finalize Kernel Builder
         kernel = kernelBuilder.Build();
@@ -125,6 +129,8 @@ public partial class Chat
         kernel.ImportPluginFromObject(searchPlugin, "HandbookPlugin");
 
         // Challenge 07 - Text To Image Plugin
+        var imageGenerationPlugin = new ImageGenerationPlugin(Configuration);
+        kernel.ImportPluginFromObject(imageGenerationPlugin, "ImagePlugin");
     }
 
     private async Task SendMessage()
