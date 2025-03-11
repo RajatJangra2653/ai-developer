@@ -62,49 +62,30 @@ namespace BlazorAI.Plugins
 
                 // Generate the image - this will return a string (either URL or base64)
                 string resultString = await imageService.GenerateImageAsync(prompt, width, height, kernel);
-                
-                // Save the image to a file in the wwwroot/images directory
-                string fileName = $"generated_{Guid.NewGuid()}.png";
-                string directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
-                
-                // Create directory if it doesn't exist
-                if (!Directory.Exists(directoryPath))
-                {
-                    Directory.CreateDirectory(directoryPath);
-                }
-                
-                string filePath = Path.Combine(directoryPath, fileName);
-                
-                // Convert result to byte array based on what type of string it is
-                byte[] imageBytes;
-                
-                // If result is a string, it could be a URL or base64
+
+                // Check if the result is a URL or a JSON response
+                string imageUrl;
                 if (Uri.IsWellFormedUriString(resultString, UriKind.Absolute))
                 {
-                    // It's a URL, download the image
-                    imageBytes = await _httpClient.GetByteArrayAsync(resultString);
-                }
-                else if (resultString.StartsWith("data:image"))
-                {
-                    // It's a base64 data URL
-                    var base64Data = resultString.Substring(resultString.IndexOf(',') + 1);
-                    imageBytes = Convert.FromBase64String(base64Data);
-                }
-                else if (Regex.IsMatch(resultString, @"^[A-Za-z0-9+/]*={0,2}$"))
-                {
-                    // It looks like plain base64
-                    imageBytes = Convert.FromBase64String(resultString);
+                    // It's a direct URL
+                    imageUrl = resultString;
                 }
                 else
                 {
-                    throw new InvalidOperationException($"Unexpected string format returned from image generation: {resultString.Substring(0, Math.Min(100, resultString.Length))}...");
+                    // Parse the JSON response to extract the image URL
+                    try
+                    {
+                        var jsonResponse = JsonDocument.Parse(resultString);
+                        imageUrl = jsonResponse.RootElement.GetProperty("data")[0].GetProperty("url").GetString();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new InvalidOperationException($"Failed to parse image generation response: {resultString}", ex);
+                    }
                 }
-                
-                // Write the image to the file
-                await File.WriteAllBytesAsync(filePath, imageBytes);
-                
-                // Return the relative URL to the image
-                return $"/images/{fileName}";
+
+                // Return the image URL
+                return imageUrl;
             }
             catch (Exception ex)
             {
