@@ -1,17 +1,21 @@
 # Exercise 2: Semantic Kernel Fundamentals
-
-### Estimated Duration: 25 Minutes
-
+ 
+## Estimated Duration: 25 Minutes
+ 
 This hands-on lab provides practical experience with Semantic Kernel and the Azure AI Foundry GPT-4o model. Designed for those new to AI development, the lab guides you step-by-step on how to build an intelligent chat feature within a starter application. You will use the Semantic Kernel framework to connect with the GPT-4o model, implement a chat API that sends user prompts, and return dynamic AI-generated responses.
-
+ 
 ## Objectives
 In this exercise, you will be performing the following tasks:
 - Task 1: Set up environment variables
 - Task 2: Update the code files and run the app
-
+ 
 ## Task 1: Set up environment variables
-
-In this task, you will explore different flow types in Azure AI Foundry by setting up Visual Studio Code, retrieving Azure OpenAI credentials, and configuring them in Python and C# environments.
+ 
+In this task, you will explore different flow types in Azure AI Foundry by setting up Visual Studio Code, retrieving Azure OpenAI credentials, and configuring them in Python and C Sharp (C#) environments.
+ 
+>**Note:** We are not installing or using **.NET / C Sharp (C#)** in this setup.
+Any .NET code shown is only for knowledge and reference purposes.
+Please make sure to run and modify the examples using the Python version of the Semantic Kernel, as we are working fully in a Python environment.
 
 1. Open **Visual Studio Code** using the desktop shortcut in the labvm.
 
