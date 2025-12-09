@@ -19,10 +19,7 @@ In this task, you will explore different flow types in Azure AI Foundry by runni
     ```
     What time is it?
     ```
-2. Since the AI cannot provide real-time information, you will get a response similar to the following:
-    ```
-    I can't provide real-time information, including the current time. You can check the time on your device or through various online sources.
-    ```
+2. Since the AI cannot provide real-time information, you will get a response similar to the following: `I can't provide real-time information, including the current time. You can check the time on your device or through various online sources.`
 
     ![](./media/sk26.png)
 
