@@ -2,23 +2,11 @@ import asyncio
 import logging
 from dotenv import load_dotenv
 from semantic_kernel import Kernel
-from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion, AzureTextToImage, AzureChatPromptExecutionSettings
-from semantic_kernel.connectors.azure_ai_search import AzureAISearchCollection
+from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion, OpenAITextToImage
 from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
 from semantic_kernel.connectors.openapi_plugin import OpenAPIFunctionExecutionParameters
-from semantic_kernel.connectors.ai.open_ai import AzureTextEmbedding
 from semantic_kernel.contents.chat_history import ChatHistory
 from semantic_kernel.functions import KernelArguments
-import os
-from pathlib import Path
-
-from plugins.ai_search_plugin import AiSearchPlugin
-from plugins.geo_coding_plugin import GeoPlugin
-# Challenge 03 - Import plugins you create
-# from plugins.time_plugin import TimePlugin
-# from plugins.weather_plugin import WeatherPlugin
-# Challenge 07 - Import image plugin
-# from plugins.image_plugin import ImagePlugin
 
 # Add Logger
 logger = logging.getLogger(__name__)
@@ -37,9 +25,31 @@ def initialize_kernel():
 
 
 async def process_message(user_input):
-    """Legacy function - delegates to ChatService"""
-    chat_service = get_chat_service()
-    return await chat_service.process_message(user_input)
+    kernel = initialize_kernel()
+
+    #Challenge 03 and 04 - Services Required
+    #Challenge 03 - Create Prompt Execution Settings
+
+
+
+    # Challenge 03 - Add Time Plugin
+    # Placeholder for Time plugin
+
+    # Challenge 04 - Import OpenAPI Spec
+    # Placeholder for OpenAPI plugin
+
+
+    # Challenge 05 - Add Search Plugin
+
+
+    # Challenge 06- Semantic kernel filters
+
+    # Challenge 07 - Text To Image Plugin
+    # Placeholder for Text To Image plugin
+
+    # Start Challenge 02 - Sending a message to the chat completion service by invoking kernel
+
+    #return result
 
 def reset_chat_history():
     global chat_history
