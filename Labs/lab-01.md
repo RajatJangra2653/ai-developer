@@ -16,12 +16,6 @@ In this exercise, you will be performing the following tasks:
 
 In this task, you will explore different flow types in Azure AI Foundry by creating a AI hub through Azure portal, then deploying the GPT-4o model, and testing its capabilities in the playground from the Azure AI Foundry.
 
->**Note:** If you are not able to deploy the following model in your Azure OpenAI resource:
-    - GPT-4o
-> Please use the alternative models listed below:
-    - gpt-4o-mini (Replacement for GPT-4o)
-These models are fully compatible with the lab exercises and will allow you to complete all steps without issues
-
 1. On the **Azure portal** search bar, search for **AI Foundry (1)** and then select **Azure AI Foundry (2)** from the services.
 
     ![](./media/sk2.png)
@@ -58,6 +52,9 @@ These models are fully compatible with the lab exercises and will allow you to c
 1. Search for **gpt-4o (1)**, select the **gpt-4o** model **(2)**, and click on **Confirm (3)**.
 
     ![](./media/image_008.png)
+
+    >**Note**: If you are not able to deploy the following model in your Azure OpenAI resource **"GPT-4o"**, please use the alternative model **"gpt-4o-mini"**, which is a replacement for GPT-4o. These models are fully compatible with the lab exercises and will allow you to complete all steps without issues
+  
 
 1. On the **Deploy model gpt-4o** blade, specify the following configuration options and click on **Deploy (4)**:
 
