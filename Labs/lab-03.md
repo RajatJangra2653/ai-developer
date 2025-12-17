@@ -551,7 +551,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Navigate to `Python>src>plugins` directory and create a new file named **weather_plugin.py (1)**.
 
-    ![](./media/image_066.png)
+    ![](./media/new/q1.png)
 
 1. Add the following code in the file:
 
@@ -643,9 +643,9 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Save the file.
 
-1. Navigate to `Python>src` directory and open **chat.py (1)** file.
+1. Navigate to `Python>src` directory and open **chat.py** file.
 
-    ![](./media/image_030.png)
+    ![](./media/new/q2.png)
 
 1. Add the following code in the `#Import Modules` section of the file.
 
@@ -679,7 +679,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Right click on `Python>src` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/image_035.png)
+    ![](./media/new/f8.png)
 
 1. Use the following command to run the app:
 
@@ -699,9 +699,11 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     What is today's weather in San Francisco?
     ```
 
-1. You will receive a response similar to the one shown below:
+1. You will receive a response similar to the one shown below.
 
     ![](./media/image_069.png)
+
+    ![](./media/new/q4.png)
 
     The AI will perform the following plan to answer the question but may do so in a different order or different set of functions:
 
@@ -721,7 +723,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Navigate to `Dotnet>src>BlazorAI>Plugins` directory and create a new file named **WeatherPlugin.cs (1)**.
 
-    ![](./media/image_070.png)
+    ![](./media/new/q3.png)
 
 1. Add the following code in the file:
 
@@ -914,11 +916,11 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Save the file.
 
-1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs (1)** file.
+1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs** file.
 
-    ![](./media/image_038.png)
+    ![](./media/new/g7.png)
 
-1. Add the following code in the `// Challenge 03 - Add Time Plugin` section, after the **geocoding plugin** in the file.yeah
+1. Add the following code in the `// Challenge 03 - Add Time Plugin` section, after the **geocoding plugin** in the file.
 
     ```
     var weatherPlugin = new WeatherPlugin(
@@ -935,9 +937,9 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     ```
 1. Save the file.
 
-1. Right click on `Dotnet>src>Aspire>Aspire.AppHost` in the left pane and select **Open in Integrated Terminal**.
+1. Right click on `Dotnet>src>Aspire>Aspire.AppHost` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/image_040.png)
+    ![](./media/new/g8.png)
 
 1. Use the following command to run the app:
 
