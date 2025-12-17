@@ -6,7 +6,7 @@
 
 In this hands-on lab series, participants will explore the core capabilities of **Azure AI Foundry** and the **Semantic Kernel** framework to build intelligent, extensible AI applications. Designed for beginners in AI development, the labs guide participants through setting up AI projects in Azure AI Foundry, deploying the **GPT-4o** model, and connecting it seamlessly with Semantic Kernel to enable dynamic, prompt-based interactions. Participants will learn how to integrate **plugins**—such as time and weather utilities—to extend chatbot functionality, implement **Retrieval-Augmented Generation (RAG)** for more informed responses, and leverage **OpenAPI** to connect external services with minimal code. The labs also highlight responsible AI practices with **content filtering tools** in Foundry Studio and creative AI integration through **DALL·E** for image generation, delivered in a secure, cloud-based environment. This series provides foundational, hands-on experience with Semantic Kernel and Azure AI Foundry to help participants build scalable, AI-powered applications.
 
-## Objective
+## Objectives
 
 **Explore how Azure AI Foundry and Semantic Kernel empower you to build intelligent, extensible, and responsible AI applications.** Gain hands-on experience deploying GPT-4o models, integrating external services and APIs, developing custom plugins, and implementing advanced AI design patterns such as Retrieval-Augmented Generation (RAG) and multi-agent collaboration. By the end of this lab series, you'll be able to:
 
@@ -19,7 +19,7 @@ In this hands-on lab series, participants will explore the core capabilities of 
 - **Image Generation using DALL·E**: Generate creative visuals from text prompts by integrating DALL·E into your reference application.
 - **Multi-Agent Systems**: Coordinate multiple AI agents within Semantic Kernel to solve complex tasks through collaboration.
 
-## Prerequisites
+## Pre-requisites
 
 - Basic knowledge of Azure
 - Familiarity with AI concepts, such as language models and embeddings
@@ -40,8 +40,6 @@ The lab also covers **plugins**, such as **Time & Weather utilities** for real-t
 
 ## Explanation of Components
 
-## **Explanation of Components**  
-
 - **Azure AI Foundry**: Provides an integrated environment for AI model development, deployment, and management.  
 - **Azure AI Studio**: A web-based interface for managing AI models, endpoints, and inference capabilities.  
 - **Models + Endpoints**: Used for deploying and managing **GPT-4o** models for real-time AI interactions.  
@@ -60,7 +58,7 @@ The lab also covers **plugins**, such as **Time & Weather utilities** for real-t
  
 Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
 
-   ![](./media/gsk1.png)
+   ![](./media/new/vm.png)
 
 ## Virtual Machine & Lab Guide
  
@@ -70,51 +68,56 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-   ![Explore Lab Resources](./media/gsk2.png)
+   ![Explore Lab Resources](./media/new/env.png)
  
 ## Utilizing the Split Window Feature
  
-For convenience, you can open the lab guide in a separate window by selecting the **Split Window (1)** button from the top right corner.
+For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
  
- ![Use the Split Window Feature](./media/gsk3.png)
+ ![Use the Split Window Feature](./media/new/split.png)
  
 ## Managing Your Virtual Machine
  
-**Start, stop, or restart (2)** your virtual machine from the **Resources (1)** tab. Your experience is in your hands!
+Feel free to **Start, Stop, or Restart (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
  
-![Manage Your Virtual Machine](./media/gsk4.png)
+![Manage Your Virtual Machine](./media/new/res.png)
 
 ## Lab Validation
 
-1. After completing the task, hit the **Validate** button under the Validation tab integrated into your lab guide. You can proceed to the next task if you receive a success message. If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+After completing the task, hit the **Validate** button under the Validation tab integrated within your lab guide. If you receive a success message, you can proceed to the next task; if not, carefully read the error message and retry the step, following the instructions in the lab guide.
 
-   ![Inline Validation](./media/gdev5.png)
-
-1. If you need any assistance, please contact us at **cloudlabs-support@spektrasystems.com**.
+   ![Inline Validation](./media/new/validate.png)
 
 ## Let's Get Started with Azure Portal
 
-1. On your virtual machine, click on the Azure Portal icon as shown below:
+1. On your **Lab VM**, click on the **Azure Portal** icon as shown below:
 
    ![Launch Azure Portal](./media/lc-image(1).png)
    
-1. You'll see the **Sign in to Microsoft Azure** tab. Here, enter your credentials:
+1. On the Sign in to Microsoft Azure tab, you will see the login screen. Enter the following email/username, and click on **Next (2)**:
  
-   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+   - **Email/Username:** <inject key="AzureAdUserEmail"></inject> **(1)**
  
-       ![Enter Your Username](./media/lc-image-1.png)
+     ![Enter Your Username](./media/new/email.png)
  
-1. Next, provide your password:
+1. Now enter the following password and click on **Sign in (2)**.
  
-   - **Password:** <inject key="AzureAdUserPassword"></inject>
+   - **Password:** <inject key="AzureAdUserPassword"></inject> **(1)**
  
-       ![Enter Your Password](./media/lc-image-2.png)
+      ![Enter Your Password](./media/new/pass.png)
+
+1. If you see the pop-up **Stay-Signed in?**, click **No**.
+
+    ![](./media/new/stay.png)
 
 1. If an **Action required** pop-up window appears, click on **Next**.
 
    ![Ask Later](./media/ask-later.png)
+
 1. On **Start by getting the app** page, click on **Next**.
+
 1. Click on **Next** twice.
+
 1. In **Android**, go to the Play Store, search for **Microsoft Authenticator,** and tap on **Install**.
 
    ![Install](./media/mobile.jpg)
@@ -144,8 +147,6 @@ For convenience, you can open the lab guide in a separate window by selecting th
 
    ![](./media/lc-image(3).png)
 
-This hands-on lab will help you explore how Microsoft Copilot for Infrastructure Management enhances responsible resource management. You'll gain insights into leveraging Copilot’s features to optimize your infrastructure while adhering to best practices and compliance standards.
-
 ## Support Contact
 
 The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance anytime. We offer dedicated support channels tailored specifically for learners and instructors, ensuring that all your needs are promptly and efficiently addressed.
@@ -155,7 +156,7 @@ Learner Support Contacts:
 - Email Support: cloudlabs-support@spektrasystems.com
 - Live Chat Support: https://cloudlabs.ai/labs-support
 
-Now, click **Next** from the lower right corner to move on to the next page.
+Now, click **Next >>** from the bottom right corner to embark on your Lab journey!
 
 ![Launch Azure Portal](./media/gsk5.png)
 
