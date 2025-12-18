@@ -16,9 +16,9 @@ In this exercise, you will complete the following tasks:
 
 ## Task 1: Deploy a Text Embedding model
 
-In this task, you will explore different flow types in Azure AI Foundry by deploying a Text Embedding model to enable text representation and similarity analysis.
+In this task, you will explore different flow types in Microsoft Foundry by deploying a Text Embedding model to enable text representation and similarity analysis.
 
-1. Navigate to the [Azure AI Foundry](https://ai.azure.com/) portal.
+1. Navigate to the [Microsoft Foundry](https://ai.azure.com/) portal.
 
 1. Select the listed **aifoundryhubxxxxxx** resource to continue working in **Microsoft Foundry**.
 
