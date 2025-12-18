@@ -2,11 +2,16 @@
 
 ### Estimated Duration: 40 Minutes
 
+## Lab Overview
+
 This hands-on lab introduces you to the Retrieval-Augmented Generation (RAG) pattern—an AI architecture that enhances response quality by integrating relevant external knowledge into the generative process. Designed for those new to RAG, the lab guides you through how retrieval mechanisms work alongside generative models to deliver more accurate, informed, and context-aware outputs. You will also gain a clear understanding of data privacy and security prompts, completions, embeddings, and training data remaining fully isolated—they are not shared with other customers, OpenAI, Microsoft, or third parties, nor are they used to improve models automatically.
 
-## Objectives
-In this exercise, you will be performing the following tasks:
+## Lab Objectives
+
+In this exercise, you will complete the following tasks:
+
 - Task 1: Deploy a Text Embedding model
+
 - Task 2: Create a Semantic Search Plugin to query the AI Search Index
 
 ## Task 1: Deploy a Text Embedding model
@@ -14,84 +19,100 @@ In this exercise, you will be performing the following tasks:
 In this task, you will explore different flow types in Azure AI Foundry by deploying a Text Embedding model to enable text representation and similarity analysis.
 
 1. Navigate to the [Azure AI Foundry](https://ai.azure.com/) portal.
-1. Click on **Models + endpoints (1)** under **My assets** in the left pane, then click on **+ Deploy model**, followed by **Deploy Base model (2)**.
 
-    ![](./media/image_007-1.png)
-1. Search for **text-embedding-ada-002**, select the model **(1)**, and click on **Confirm (2)**.
+1. Select the listed **aifoundryhubxxxxxx** resource to continue working in **Microsoft Foundry**.
 
-    ![](./media/image_084.png)
+    ![](./media/new/b3.png)
+
+1. From the left navigation pane, select **Model + endpoints (1)**, then click on **+ Deploy model (2)** drop-down and click **Deploy base model (3)**.
+
+    ![](./media/new/a8.png)
+
+1. Search for **text-embedding-ada-002 (1)**, select **text-embedding-ada-002 (2)** model, and click on **Confirm (3)**.
+
+    ![](./media/new/w2.png)
 
    >**Note**: If you are not able to deploy the following model in your Azure OpenAI resource **"text-embedding-ada-002"**, please use the alternative model **"text-embedding-3-large"**, which is a replacement for text-embedding-ada-002. These models are fully compatible with the lab exercises and will allow you to complete all steps without issues.
 
-1. Click on **Deploy**.
+1. Click on **Deploy** to the model.
 
-1. Navigate back to **Models+endpoints (1)**, select **GPT-4o (2)**, and click on **Open in playground (3)**.
+    ![](./media/new/w3.png)
 
-    ![](./media/sk34.png)
+1. Navigate back to **Models+endpoints (1)**, select **gpt-4o (2)**, and click on **Open in playground (3)**.
 
-1. Click on **Add your data (1)** and select **+ Add a data source (2)**.
+    ![](./media/new/w4.png)
 
-    ![](./media/image_085a.png)
+1. Expand **Add your data (1)** section and select **+ Add a data source (2)**.
 
-1. On the **Select or add data source**blade, provide the following details and then click on **Next (6)**:
+    ![](./media/new/w5.png)
 
-    - Select **Upload files (1)** for `Data source`
+1. On the **Select or add data source**blade, provide the following details:
+
+    - Select data source: Select **Upload files (preview) (1)**
+
     - Subscription: Leave the default one **(2)**
-    - Select Azure blob Azure Storage blob resouce: Select the storage account that starts with **aifoundryhubxxxxxx (3)**
-    - Select Azure AI Search resource: Select **ai-search-<inject key="Deployment ID" enableCopy="false"></inject> (4)** 
-    - Enter the index name: Enter **employeehandbook (5)** 
+
+    - Select Azure Blob Storage resouce: Select the storage account that starts with **aifoundryhubxxxxxx (3)**
+
+    - Click **Turn on CORS (4)** to grant access.
+
+      ![](./media/new/w6.png)
+
+    - Select Azure AI Search resource: Select **ai-search-<inject key="Deployment ID" enableCopy="false"></inject> (5)** 
+
+    - Enter the index name: Enter **employeehandbook (6)** 
  
-      ![](./media/sk35.png)
+    - Then click on **Next (7)**
 
-      >**Note:** If you receive a message prompting you to **Turn on CORS**, go ahead and click on it.
+      ![](./media/new/w7.png)
+  
+1. Click **Browse for a file** to upload documents.
 
-      ![](./media/sk35a.png)      
-
-1. Click on **Browse for files**.
-
-    ![](./media/sk36.png)
+    ![](./media/new/w8.png)
   
 1. Navigate to `C:\LabFiles\ai-developer\Dotnet\src\BlazorAI\data\` and select **employee_handbook.pdf (1).** Click on **Open (2)**.
 
     ![](./media/image_087.png)
 
-1. Click on **Upload files**.
+1. Click on **Upload files** to upload the files.
 
-    ![](./media/sk37.png)
+    ![](./media/new/w10.png)
 
-1. Click on **Next**.
+1. Once the upload is completed, click on **Next**.
 
-1. On the **Data Management** page, click on **Next**.
+    ![](./media/new/w11.png)
 
-    ![](./media/sk38.png)
+1. On the **Data Management** blade, keep the default Chunk Size (1024), and click **Next** to continue.
+
+    ![](./media/new/w12.png)
 
 1. On the **Data Connection** blade, select **API Key (1)** for authenticatio and then click on **Next (2)**.    
 
-    ![](./media/sk39.png)
+    ![](./media/new/r1.png)
 
 1. Review the configuration and then click on **Save and close**.
 
-    ![](./media/sk40.png)
+    ![](./media/new/r2.png)
 
-1. The data injection might take around 5 minutes.
+1. The data injection might take around **5** Minutes.
 
-    ![](./media/sk41.png)
+    ![](./media/new/r3.png)
 
-1. Navigate to the **Azure Portal** and search **AI Search (1).** Click on it and open the **AI Search (2)** resource located there.
+1. In the **Azure portal**, search for **AI Search (1)** using the top search bar and select **AI Search (2)** from the Services list.
 
-    ![](./media/image_089.png)
+    ![](./media/new/r4.png)
 
-1. Select **ai-search-<inject key="Deployment ID" enableCopy="false"></inject>**.    
+1. Select the **ai-search-<inject key="Deployment ID" enableCopy="false"></inject>** search service.
     
-    ![](./media/image_090.png)
+    ![](./media/new/r5.png)
 
 1. On the **Overview (1)** page, copy the **URL (2)** and paste it into Notepad.
 
-    ![](./media/image_091.png)
+    ![](./media/new/r6.png)
 
-1. Navigate to **Keys (1)** under **Settings** in the left pane, copy the **Primary admin key (2)** from Azure Portal, and paste it into Notepad.
+1. From the left navigation pane, expand **Settings (1)**, click on **Keys (2)**, copy the **Primary admin key (3)** and paste it into Notepad.
 
-    ![](./media/image_092.png)
+    ![](./media/new/r7.png)
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 
@@ -565,12 +586,12 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 ## Review
 
-In this exercise, we explored the **Retrieval-Augmented Generation (RAG) pattern** to enhance AI responses by integrating external knowledge into the generative process. We examined how retrieval mechanisms work alongside generative models to produce accurate, context-aware outputs. This enhanced our proficiency in building secure, knowledge-enriched AI solutions using the RAG architecture.
+In this exercise, you have completed the following:
 
-You have successfully completed the below tasks for **Retrieval-Augmented Generation (RAG) implementation**:  
+- Deployed a Text Embedding model.
 
-- Integrated the **RAG pattern** to enhance AI-generated responses with external knowledge retrieval.  
-- Utilized **Azure AI Search** to fetch relevant contextual data for more accurate outputs.  
-- Configured **Semantic Kernel** to orchestrate retrieval and generative workflows seamlessly.  
+- Created a Semantic Search Plugin to query the AI Search index.
 
-## Go to the next lab by clicking on the navigation.
+### You have successfully completed this exercise. Kindly click **Next >>** to proceed further
+
+![Launch Azure Portal](./media/gsk5.png)
