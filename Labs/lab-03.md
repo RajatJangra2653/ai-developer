@@ -2,10 +2,14 @@
 
 ### Estimated Duration: 50 Minutes
 
+## Lab Overview
+
 This hands-on lab explores the power of plugins in enhancing LLM development with Semantic Kernel. Designed for those new to AI extensibility, the lab guides you through building and integrating plugins to expand the capabilities of your chatbot. You will implement a time and weather retrieval plugin, enabling your AI to access real-time and contextual data beyond its training scope. Additionally, you will learn to develop Semantic Kernel plugins in Python and leverage Auto Function Calling to chain them together seamlessly.
 
-## Objectives
-In this exercise, you will be performing the following tasks:
+## Lab Objectives
+
+In this exercise, you will complete the following tasks:
+
 - Task 1: Try the app without the Time Plugin
 - Task 2: Create and import the Time Plugin
 - Task 3: Create and import the Geocoding Plugin
@@ -13,26 +17,28 @@ In this exercise, you will be performing the following tasks:
 
 ## Task 1: Try the app without the Time Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by running the app without the Time Plugin to observe its default behavior.
+In this task, you will explore different flow types in Microsoft Foundry by running the app without the Time Plugin to observe its default behavior.
 
 1. Launch your AI Chat app in any of the languages, and submit the following prompt:
+
     ```
     What time is it?
     ```
-2. Since the AI cannot provide real-time information, you will get a response similar to the following: `I can't provide real-time information, including the current time. You can check the time on your device or through various online sources.`
 
-    ![](./media/sk26.png)
+2. Since the AI cannot provide real-time information, you will get a response similar to the following: `I'm unable to provide real-time information, including the current time. You can check the time on your device or any clock around you.`
+
+    ![](./media/new/e5.png)
 
 ## Task 2: Create and import the Time Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by creating and importing the Time Plugin to enhance the app's functionality.
+In this task, you will explore different flow types in Microsoft Foundry by creating and importing the Time Plugin to enhance the app's functionality.
 
 <details>
 <summary><strong>Python</strong></summary>
 
 1. Navigate to `Python>src>plugins` directory, right click on **Plugins** then click on **New file** and then create a new file named **time_plugin.py (1)**.
 
-    ![](./media/image_044.png)
+    ![](./media/new/f4.png)
 
 1. Add the following code to the file:
 
@@ -82,9 +88,10 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Save the file.
 
-1. Navigate to `Python>src` directory and open **chat.py (1)** file.
+1. Navigate to `Python>src` directory and open **chat.py** file.
 
-    ![](./media/image_030.png)
+    ![](./media/new/f5.png)
+
 1. Add the following code in the `#Import Modules` section of the file.
     ```
     from semantic_kernel.connectors.ai.open_ai.prompt_execution_settings.azure_chat_prompt_execution_settings import (
@@ -93,15 +100,17 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     from plugins.time_plugin import TimePlugin
     ```
     
-    ![](./media/image_045.png)
-1. Add the following code in the `#Challenge 03 - Create Prompt Execution Settings` **(1)** section of the file.
+    ![](./media/new/f6.png)
+
+1. Add the following code in the `#Challenge 03 - Create Prompt Execution Settings` section of the file.
     ```
     execution_settings = AzureChatPromptExecutionSettings()
     execution_settings.function_choice_behavior = FunctionChoiceBehavior.Auto()
     logger.info("Automatic function calling enabled")
     ```
 
-    ![](./media/image_046.png)
+    ![](./media/new/f7.png)
+
 1. Add the following code in the `# Placeholder for Time plugin` section of the file.
     ```
     time_plugin = TimePlugin()
@@ -116,14 +125,21 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     execution_settings = kernel.get_prompt_execution_settings_from_service_id("chat-service")
     ```
     >**Note**: You need to remove it from two code blocks; one will be inside the **def initialize_kernel():** function, and another will be in the **global chat_history** code block.
+
+    ![](./media/new/f1a.png)
+
+    ![](./media/new/f1b.png)
+
 1. In case you encounter any indentation error, use the code from the following URL:
     ```
     https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/refs/heads/prod/CodeBase/python/lab-03_time_plugin.py
     ```
 1. Save the file.
+
 1. Right-click on `Python>src` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/image_035.png)
+    ![](./media/new/f8.png)
+
 1. Use the following command to run the app:
     ```
     streamlit run app.py
@@ -137,11 +153,13 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     What time is it?
     ```
 1. Since the AI has the **Time Plugin**, it will be able to provide real-time information, you will get a response similar to the following:
+
     ```
-    The current time is 3:43 PM on January 23, 2025.
+    The current time is 15:01:27 on December 17, 2025.
     ```
 
-    ![](./media/image_048.png)
+    ![](./media/new/f9.png)
+
 </details>
 
 <details>
@@ -254,29 +272,34 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     }
     ```
 1. Save the file.
-1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs (1)** file.
 
-    ![](./media/image_038.png)
-1. Add the following code in the `// Import Models` **(1)** section of the file.
+1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs** file.
+
+    ![](./media/new/e1.png)
+
+1. Add the following code in the `// Import Models` section of the file.
     ```
     using Microsoft.SemanticKernel.Connectors.OpenAI;
     using BlazorAI.Plugins;
     using System;
     ```
 
-    ![](./media/image_050.png)
+    ![](./media/new/e6.png)
+
 1. Search **private Kernel? kernel;** (using Ctrl+F)  and add the following piece of code below it:
     ```
     private OpenAIPromptExecutionSettings? promptSettings;
     ```
 
-    ![](./media/image_051.png)
+    ![](./media/new/e7.png)
+
 1. Search **chatHistory = [];** (using Ctrl+F)  and add the following piece of code below it:
     ```
     chatHistory = new ChatHistory();
     ```
 
-    ![](./media/image_052.png)
+    ![](./media/new/e8.png)
+
 1. Add the following code in the `// Challenge 03 - Create OpenAIPromptExecutionSettings` (1) section of the file.
     ```
     promptSettings = new OpenAIPromptExecutionSettings
@@ -288,7 +311,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     };
     ```
 
-    ![](./media/image_053.png)
+    ![](./media/new/e9.png)
 
      >**Note**: Please refer the screenshots to locate the code in proper position that helps you to avoid indentation error.
 
@@ -298,7 +321,8 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     kernel.ImportPluginFromObject(timePlugin, "TimePlugin");
     ```
 
-    ![](./media/image_054.png)
+    ![](./media/new/e10.png)
+
 1. Search **var assistantResponse = await chatCompletionService.GetChatMessageContentAsync** (using Ctrl+F)  and add the following line of code between chatHistory and kernel:
     ```
     executionSettings: promptSettings,
@@ -311,7 +335,8 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
         kernel: kernel);
     ```
     
-    ![](./media/image_055.png)
+    ![](./media/new/f2.png)
+
 1. In case you encounter any indentation error, use the code from the following URL:
     ```
     https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/refs/heads/prod/CodeBase/c%23/lab-03_time_plugin.cs
@@ -320,7 +345,8 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Right click on `Dotnet>src>Aspire>Aspire.AppHost` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/image_040.png)
+    ![](./media/new/e2.png)
+
 1. Use the following command to run the app:
     ```
     dotnet run
@@ -335,7 +361,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     The current time is 3:43 PM on January 23, 2025.
     ```
 
-    ![](./media/sk28.png)
+    ![](./media/new/f3.png)
 
 1. Once you receive the response, navigate back to the Visual studio code terminal and then press **Ctrl+C** to stop the build process.
 
@@ -343,36 +369,36 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 ## Task 3: Create and import the Geocoding Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by creating and importing the Geocoding Plugin to enable location-based functionality.
+In this task, you will explore different flow types in Microsoft Foundry by creating and importing the Geocoding Plugin to enable location-based functionality.
 
-1. Open a new tab in the browser, navigate to the [Geocoding API](https://geocode.maps.co/) portal, and click on the **Free API Key** button on the top.
+1. Open a new tab in the browser, navigate to the [Geocoding API](https://geocode.maps.co/) portal, and click on the **Get API Key** button on the top.
 
-    ![](./media/image_057.png)
+    ![](./media/new/g1.png)
 
-1. Enter your details and click on **Create Account (1)**.
+1. Enter your personal details and click on **Create Account**.
 
-    ![](./media/image_058.png)
+    ![](./media/new/g2.png)
 
     >**Note**: Use your personal or work e-mail ID to register.
 
-1. You will receive an e-mail. Click on the link in the e-mail to verify your e-mail.
+1. You will receive an E-Mail. Click on the **link** in the e-mail to verify your e-mail.
 
-    ![](./media/sk29.png)
+    ![](./media/new/g3.png)
 
-1. You will receive your free **geocoding API key,** save it in Notepad for further use.
+1. You will receive your free **geocoding API key** in another mail, save it in Notepad for further use.
 
-    ![](./media/sk30.png)
+    ![](./media/new/g4.png)
 
 <details>
 <summary><strong>Python</strong></summary>
 
-1. Navigate to `Python>src` directory and open **.env (1)** file.
+1. Navigate to `Python>src` directory and open **.env** file.
 
-    ![](./media/image_026.png)
+    ![](./media/new/f5a.png)
 
 1. Paste the geocoding API key you received just now via e-mail besides `GEOCODING_API_KEY`.
 
-    ![](./media/image_059.png)
+    ![](./media/new/g5.png)
 
     >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes (")**.
 
@@ -380,7 +406,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Navigate to `Python>src` directory and open **chat.py** file.
 
-    ![](./media/image_030.png)
+    ![](./media/new/f5.png)
 
 1. Add the following code in the `#Import Modules` section of the file.
 
@@ -414,7 +440,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Right click on `Python>src` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/image_035.png)
+    ![](./media/new/f8.png)
     
 1. Use the following command to run the app:
 
@@ -452,11 +478,9 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Navigate to `Dotnet>src>BlazorAI` directory and open **appsettings.json** file.
 
-    ![](./media/image_028.png)
-
 1. Paste the geocoding API key you received just now via e-mail besides `GEOCODING_API_KEY`.
 
-    ![](./media/image_063.png)
+    ![](./media/new/g6.png)
 
     >Note:- Ensure that every value in the **appsettings.json** file is enclosed in **double quotes (")**.
 
@@ -464,7 +488,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs** file.
 
-    ![](./media/image_038.png)
+    ![](./media/new/g7.png)
 
 1. Add the following code in the `// Challenge 03 - Add Time Plugin` section, after the **time plugin** in the file.
 
@@ -489,7 +513,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Right click on `Dotnet>src>Aspire>Aspire.AppHost` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/image_040.png)
+    ![](./media/new/g8.png)
 
 1. Use the following command to run the app:
 
@@ -520,14 +544,14 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 ## Task 4: Create and import the Weather Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by creating and importing the Weather Plugin to integrate weather-related functionality.
+In this task, you will explore different flow types in Microsoft Foundry by creating and importing the Weather Plugin to integrate weather-related functionality.
 
 <details>
 <summary><strong>Python</strong></summary>
 
 1. Navigate to `Python>src>plugins` directory and create a new file named **weather_plugin.py (1)**.
 
-    ![](./media/image_066.png)
+    ![](./media/new/q1.png)
 
 1. Add the following code in the file:
 
@@ -619,9 +643,9 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Save the file.
 
-1. Navigate to `Python>src` directory and open **chat.py (1)** file.
+1. Navigate to `Python>src` directory and open **chat.py** file.
 
-    ![](./media/image_030.png)
+    ![](./media/new/q2.png)
 
 1. Add the following code in the `#Import Modules` section of the file.
 
@@ -655,7 +679,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Right click on `Python>src` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/image_035.png)
+    ![](./media/new/f8.png)
 
 1. Use the following command to run the app:
 
@@ -675,9 +699,11 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     What is today's weather in San Francisco?
     ```
 
-1. You will receive a response similar to the one shown below:
+1. You will receive a response similar to the one shown below.
 
     ![](./media/image_069.png)
+
+    ![](./media/new/q4.png)
 
     The AI will perform the following plan to answer the question but may do so in a different order or different set of functions:
 
@@ -697,7 +723,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Navigate to `Dotnet>src>BlazorAI>Plugins` directory and create a new file named **WeatherPlugin.cs (1)**.
 
-    ![](./media/image_070.png)
+    ![](./media/new/q3.png)
 
 1. Add the following code in the file:
 
@@ -890,11 +916,11 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 1. Save the file.
 
-1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs (1)** file.
+1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs** file.
 
-    ![](./media/image_038.png)
+    ![](./media/new/g7.png)
 
-1. Add the following code in the `// Challenge 03 - Add Time Plugin` section, after the **geocoding plugin** in the file.yeah
+1. Add the following code in the `// Challenge 03 - Add Time Plugin` section, after the **geocoding plugin** in the file.
 
     ```
     var weatherPlugin = new WeatherPlugin(
@@ -911,9 +937,9 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
     ```
 1. Save the file.
 
-1. Right click on `Dotnet>src>Aspire>Aspire.AppHost` in the left pane and select **Open in Integrated Terminal**.
+1. Right click on `Dotnet>src>Aspire>Aspire.AppHost` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/image_040.png)
+    ![](./media/new/g8.png)
 
 1. Use the following command to run the app:
 
@@ -949,13 +975,16 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 ## Review
 
-In this exercise, we utilized **Semantic Kernel plugins** to enhance LLM capabilities by extending a chatbot's functionality. We developed and integrated **time** and **weather retrieval plugins** to enable real-time, contextual responses beyond the model’s training data. Additionally, we built plugins in Python and used **Auto Function Calling** to chain them together seamlessly. This enhanced our proficiency in building extensible, intelligent AI solutions using Semantic Kernel.
+In this exercise, you have completed the following:
 
-You have successfully completed the below tasks for extending **LLM capabilities** using **Semantic Kernel plugins**:  
+- Tested the application without the Time Plugin.
 
-- Developed and integrated **time** and **weather retrieval plugins** for real-time contextual responses.  
-- Utilized **Semantic Kernel** to enhance chatbot functionality beyond the model’s training data.  
-- Implemented **Auto Function Calling** to chain multiple plugins together seamlessly.  
-- Built and deployed **Python-based plugins** to extend AI capabilities.  
+- Created and imported the Time Plugin.
 
-## Go to the next lab by clicking on the navigation.
+- Created and imported the Geocoding Plugin.
+
+- Created and imported the Weather Plugin.
+
+### You have successfully completed this exercise. Kindly click **Next >>** to proceed further
+
+![Launch Azure Portal](./media/gsk5.png)

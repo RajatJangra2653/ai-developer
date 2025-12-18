@@ -1,25 +1,32 @@
 # Exercise 2: Semantic Kernel Fundamentals
  
-## Estimated Duration: 25 Minutes
+### Estimated Duration: 25 Minutes
  
-This hands-on lab provides practical experience with Semantic Kernel and the Azure AI Foundry GPT-4o model. Designed for those new to AI development, the lab guides you step-by-step on how to build an intelligent chat feature within a starter application. You will use the Semantic Kernel framework to connect with the GPT-4o model, implement a chat API that sends user prompts, and return dynamic AI-generated responses.
+## Lab Overview
+
+This hands-on lab provides practical experience with Semantic Kernel and the Microsoft Foundry GPT-4o model. Designed for those new to AI development, the lab guides you step-by-step on how to build an intelligent chat feature within a starter application. You will use the Semantic Kernel framework to connect with the GPT-4o model, implement a chat API that sends user prompts, and return dynamic AI-generated responses.
  
-## Objectives
-In this exercise, you will be performing the following tasks:
+## Lab Objectives
+
+In this exercise, you will complete the following tasks:
+
 - Task 1: Set up environment variables
+
 - Task 2: Update the code files and run the app
  
 ## Task 1: Set up environment variables
  
-In this task, you will explore different flow types in Azure AI Foundry by setting up Visual Studio Code, retrieving Azure OpenAI credentials, and configuring them in Python and C Sharp (C#) environments.
+In this task, you will explore different flow types in Microsoft Foundry by setting up Visual Studio Code, retrieving Azure OpenAI credentials, and configuring them in Python and C Sharp (C#) environments.
  
 >**Note:** We are not installing or using **.NET / C Sharp (C#)** in this setup.
 Any .NET code shown is only for knowledge and reference purposes.
 Please make sure to run and modify the examples using the Python version of the Semantic Kernel, as we are working fully in a Python environment.
 
-1. Open **Visual Studio Code** using the desktop shortcut in the labvm.
+1. In the **Lab VM**, open **Visual Studio Code** from the desktop.
 
-1. Click on **File (1)** and select **Open Folder (2)**.
+    ![](./media/new/d1.png)
+
+1. Click on **File (1)** and select **Open Folder... (2)**.
 
     ![](./media/image_023.png)
     
@@ -27,30 +34,28 @@ Please make sure to run and modify the examples using the Python version of the 
 
     ![](./media/sk20.png)
 
-1. If you receive a `Do you trust the authors of the files in folder` warning, select the **checkbox (1)** and click **Yes, I trust the authors (2)**.
+1. Click **Yes, I trust the authors** to trust the folder and enable all features.
 
-    ![](./media/image_025.png)
+    ![](./media/new/d2.png)
 
-1. Navigate to the **AI Foundry** Portal, go to the **Home (1)** page, select **Azure OpenAI (2)**. Then **Copy (3)** the endpoint and paste it into **Notepad** to be used in the upcoming exercises.
+1. Navigate back to **Microsoft Foundry** portal.
 
-    ![](./media/sk21.png)
+1. From the **Overview (1)** page, copy the **API Key (2)**, select **Azure OpenAI (3)** under Libraries, and copy the **Azure OpenAI endpoint (4)** using the copy icons. And paste it into **Notepad** to be used in the upcoming exercises
 
-1. Copy the **API key** from the AI Foundry Portal and paste it into **Notepad** for use in the upcoming exercises.
-
-    ![](./media/sk22.png)
+    ![](./media/new/d4.png)
 
 <details>
 <summary><strong>Python</strong></summary>
 
-1. Navigate to `Python>src` directory and open **.env** (1) file.
+1. Expand **Python** **(1)** folder, then expand **src** **(2)** directory and open **.env** (3) file.
 
-    ![](./media/image_026.png)
+    ![](./media/new/d5.png)
 
 1. Paste **Azure OpenAI Service endpoint** copied earlier in the exercise besides `AZURE_OPENAI_ENDPOINT`.
     >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes (")**.
 1. Paste **API key** copied earlier in the exercise besides `AZURE_OPENAI_API_KEY`.
 
-    ![](./media/image_027.png)
+    ![](./media/new/d6.png)
 
 1. Use **Ctrl+S** to save the file.
 
@@ -64,12 +69,14 @@ Please make sure to run and modify the examples using the Python version of the 
     ![](./media/sk23.png)
 
 1. Paste **Azure OpenAI Service endpoint** copied earlier in the exercise besides `AOI_ENDPOINT`.
+
     >**Note**:- Ensure that every value in the **appsettings.json** file is enclosed in **double quotes (")**.
 
     >**Note**:- Make sure to remove the "/" from the endpoint.
+
 1. Paste **API key** copied earlier in the exercise besides `AOI_API_KEY`.
 
-    ![](./media/sk25.png)
+    ![](./media/new/d7.png)
 
 1. Use **Ctrl+S** to save the file.
 
@@ -77,14 +84,14 @@ Please make sure to run and modify the examples using the Python version of the 
 
 ## Task 2: Update the code files and run the app
 
-In this task, you will explore different flow types in Azure AI Foundry by updating code files, running the AI-powered app in Python and C#, and testing responses to user prompts.
+In this task, you will explore different flow types in Microsoft Foundry by updating code files, running the AI-powered app in Python and C#, and testing responses to user prompts.
 
 <details>
 <summary><strong>Python</strong></summary>
 
-1. Navigate to `Python>src` directory and open **chat.py (1)** file.
+1. Navigate to `Python>src` directory and open **chat.py** file.
 
-    ![](./media/image_030.png)
+    ![](./media/new/d8.png)
 
 1. Add the following code in the `#Import Modules` (1) section of the file.
 
@@ -94,45 +101,47 @@ In this task, you will explore different flow types in Azure AI Foundry by updat
     import os
     ```
 
-    ![](./media/image_031.png)
+    ![](./media/new/d9.png)
 
 1. Add the following code in the `# Challenge 02 - Chat Completion Service` (1) section of the file.
 
     ```
-    chat_completion_service = AzureChatCompletion(
-        deployment_name=os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT_NAME"),
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-        endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-        service_id="chat-service",
-    )
-    kernel.add_service(chat_completion_service)
-    execution_settings = kernel.get_prompt_execution_settings_from_service_id("chat-service")
+        chat_completion_service = AzureChatCompletion(
+            deployment_name=os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT_NAME"),
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+            service_id="chat-service",
+        )
+        kernel.add_service(chat_completion_service)
+        execution_settings = kernel.get_prompt_execution_settings_from_service_id("chat-service")
     ```
 
-    ![](./media/image_032.png)
+    ![](./media/new/d11.png)
 
 1. Add the following code in the `# Start Challenge 02 - Sending a message to the chat completion service by invoking kernel` section of the file.
 
     ```
-    global chat_history
-    chat_history.add_user_message(user_input)
-    chat_completion = kernel.get_service(type=ChatCompletionClientBase)
-    execution_settings = kernel.get_prompt_execution_settings_from_service_id("chat-service")
-    response = await chat_completion.get_chat_message_content(
-        chat_history=chat_history,
-        settings=execution_settings,
-        kernel=kernel
-    )
-    chat_history.add_assistant_message(str(response))
+        # Start Challenge 02 - Sending a message to the chat completion service by invoking kernel
+        global chat_history
+        chat_history.add_user_message(user_input)
+        chat_completion = kernel.get_service(type=ChatCompletionClientBase)
+        execution_settings = kernel.get_prompt_execution_settings_from_service_id("chat-service")
+        response = await chat_completion.get_chat_message_content(
+            chat_history=chat_history,
+            settings=execution_settings,
+            kernel=kernel
+        )
+        chat_history.add_assistant_message(str(response))
     ```
 
-    ![](./media/image_033.png)
+    ![](./media/new/d10.png)
+
 
 1. Add the following code in the `#return result` section of the file.
 
     ```
-    logger.info(f"Response: {response}")
-    return response
+        logger.info(f"Response: {response}")
+        return response
     ```
 
     ![](./media/image_034.png)
@@ -145,9 +154,9 @@ In this task, you will explore different flow types in Azure AI Foundry by updat
 
 1. Save the file.
 
-1. Right click on `Python>src` in the left pane and select **Open in Integrated Terminal**.
+1. Right click on **src (1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/image_035.png)
+    ![](./media/new/d12.png)
 
 1. Use the following command to run the app:
 
@@ -180,15 +189,17 @@ In this task, you will explore different flow types in Azure AI Foundry by updat
 
 1. You will receive a response similar to the one shown below:
 
-    ![](./media/image_037.png)
+    ![](./media/new/d13.png)
+
 </details>
 
 <details>
 <summary><strong>C Sharp(C#)</strong></summary>
 
-1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs (1)** file.
+1. Navigate to `Dotnet > src > BlazorAI > Components > Pages` directory and open **Chat.razor.cs** file.
 
-    ![](./media/image_038.png)
+    ![](./media/new/e1.png)
+
 1. Add the following code in the `// Your code goes here(Line no. 92)` (1) section of the file.
 
     ```
@@ -200,7 +211,8 @@ In this task, you will explore different flow types in Azure AI Foundry by updat
     chatHistory.AddAssistantMessage(assistantResponse.Content);
     ```
 
-    ![](./media/image_039.png)
+    ![](./media/new/e4.png)
+    
 1. In case you encounter any indentation error, use the code from the following URL: 
 
     ```
@@ -211,14 +223,15 @@ In this task, you will explore different flow types in Azure AI Foundry by updat
 
 1. Right click on `Dotnet>src>Aspire>Aspire.AppHost` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/image_040.png)
+    ![](./media/new/e2.png)
+
 1. Run the following line of code to trust the dev certificates necessary to run the app locally, and then select **Yes**:
 
     ```
     dotnet dev-certs https --trust
     ```
 
-    ![](./media/image_041.png)
+    ![](./media/new/e3.png)
 
 1. Use the following command to run the app:
 
@@ -250,12 +263,12 @@ In this task, you will explore different flow types in Azure AI Foundry by updat
 
 ## Review
 
-In this exercise, we utilized **Semantic Kernel** in combination with the **Azure AI Foundry GPT-4o model** to build an intelligent chat feature within a starter application. We integrated the Semantic Kernel framework with GPT-4o, implemented a chat API to handle user prompts, and returned dynamic AI-generated responses. This enhanced our proficiency in connecting applications to powerful language models using modern AI development frameworks.
+In this exercise, you have completed the following:
 
-You have successfully completed the below tasks for AI-driven chat implementation using **Semantic Kernel** and **Azure AI Foundry GPT-4o**:  
+- Set up the required environment variables.
 
-- Integrated **Semantic Kernel** with **GPT-4o** for intelligent AI interactions.  
-- Configured a **chat API** to process user prompts and generate AI-driven responses.     
-- Extended chatbot functionality by integrating **Azure AI Search** for contextual data retrieval.  
+- Updated the code files and successfully ran the application.
 
-## Go to the next lab by clicking on the navigation.
+### You have successfully completed this exercise. Kindly click **Next >>** to proceed further
+
+![Launch Azure Portal](./media/gsk5.png)
