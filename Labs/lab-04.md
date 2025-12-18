@@ -16,7 +16,7 @@ In this exercise, you will complete the following tasks:
 
 ## Task 1: Try the app without the OpenAPI Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by running the app without the OpenAPI Plugin to observe its default behavior.
+In this task, you will explore different flow types in Microsoft Foundry by running the app without the OpenAPI Plugin to observe its default behavior.
 
 1. Launch your AI Chat app in any of the languages, submit the following prompt, and see how it responds:
 
@@ -29,7 +29,7 @@ In this task, you will explore different flow types in Azure AI Foundry by runni
 
 ## Task 2: Create and import the OpenAPI Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by creating and importing the OpenAPI Plugin to extend the app's capabilities.
+In this task, you will explore different flow types in Microsoft Foundry by creating and importing the OpenAPI Plugin to extend the app's capabilities.
 
 <details>
 <summary><strong>Python</strong></summary>

@@ -124,7 +124,7 @@ In this task, you will explore different flow types in Microsoft Foundry by depl
 
 ## Task 2: Create a Semantic Search Plugin to query the AI Search Index
 
-In this task, you will explore different flow types in Azure AI Foundry by creating a Semantic Search Plugin to query the AI Search Index for enhanced retrieval capabilities.
+In this task, you will explore different flow types in Microsoft Foundry by creating a Semantic Search Plugin to query the AI Search Index for enhanced retrieval capabilities.
 
 <details>
 <summary><strong>Python</strong></summary>

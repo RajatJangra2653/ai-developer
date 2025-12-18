@@ -16,7 +16,7 @@ In this exercise, you will complete the following tasks:
 
 ## Task 1: Deploy a DALL-E model
 
-In this task, you will explore different flow types in Azure AI Foundry by deploying a DALL-E model to generate images from text prompts.
+In this task, you will explore different flow types in Microsoft Foundry by deploying a DALL-E model to generate images from text prompts.
 
 1. Navigate to the [Microsoft Foundry](https://ai.azure.com/) portal.
 
@@ -61,7 +61,7 @@ In this task, you will explore different flow types in Azure AI Foundry by deplo
 
 ## Task 2: Create and import the Image Generation Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by creating and importing the Image Generation Plugin to enable AI-powered image creation.
+In this task, you will explore different flow types in Microsoft Foundry by creating and importing the Image Generation Plugin to enable AI-powered image creation.
 
 <details>
 <summary><strong>Python</strong></summary>

@@ -1,11 +1,11 @@
-# Exercise 6: Responsible AI: Exploring Content Filters in Azure AI Foundry
+# Exercise 6: Responsible AI: Exploring Content Filters in Microsoft Foundry
 
 ### Estimated Duration: 25 Minutes
 
 ## Lab Overview
 
-This hands-on lab introduces content filtering in Azure AI Foundry to help you build safer, more responsible AI applications.
-You will learn to apply built-in filters, adjust settings, and create custom rules to block unwanted content—all within Azure AI Foundry Studio.
+This hands-on lab introduces content filtering in Microsoft Foundry to help you build safer, more responsible AI applications.
+You will learn to apply built-in filters, adjust settings, and create custom rules to block unwanted content—all within Microsoft Foundry Studio.
 
 ## Lab Objectives
 
@@ -17,7 +17,7 @@ In this exercise, you will complete the following tasks:
 
 ## Task 1: Adjust Filter Settings
 
-In this task, you will explore different flow types in Azure AI Foundry by adjusting filter settings to refine search results and improve query accuracy.
+In this task, you will explore different flow types in Microsoft Foundry by adjusting filter settings to refine search results and improve query accuracy.
 
 1. Navigate to the [Microsoft Foundry](https://ai.azure.com/) portal.
 
@@ -49,7 +49,7 @@ In this task, you will explore different flow types in Azure AI Foundry by adjus
 
 ## Task 2: Filter specific words or patterns
 
-In this task, you will explore different flow types in Azure AI Foundry by filtering specific words or patterns to refine search results and enhance data relevance.
+In this task, you will explore different flow types in Microsoft Foundry by filtering specific words or patterns to refine search results and enhance data relevance.
 
 1. From the top menu bar, select **Blocklists (Preview) (1)** tab and then click **+ Create blocklist (2)**.
 

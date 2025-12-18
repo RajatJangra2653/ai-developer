@@ -1,24 +1,24 @@
-# Exercise 1: Azure AI Foundry Fundamentals
+# Exercise 1: Microsoft Foundry Fundamentals
 
 ### Estimated Duration: 20 Minutes
 
 ## Lab Overview
 
-This hands-on lab provides experience with Azure AI Foundry and its core capabilities, including AI model deployment and integration with Azure AI Search. Designed for those new to the platform, the lab guides you step-by-step to set up an AI project, deploy a GPT-4o model, and configure essential AI services.
+This hands-on lab provides experience with Microsoft Foundry and its core capabilities, including AI model deployment and integration with Azure AI Search. Designed for those new to the platform, the lab guides you step-by-step to set up an AI project, deploy a GPT-4o model, and configure essential AI services.
 
-You will explore Azure AI Foundry to create and manage AI projects, use Models + Endpoints to deploy base models, and leverage Azure AI Search for scalable, efficient data retrieval. Ensure all prerequisites are met before starting, as the cloud-based Azure AI Foundry platform allows you to complete the lab remotely.
+You will explore Microsoft Foundry to create and manage AI projects, use Models + Endpoints to deploy base models, and leverage Azure AI Search for scalable, efficient data retrieval. Ensure all prerequisites are met before starting, as the cloud-based Microsoft Foundry platform allows you to complete the lab remotely.
 
 ## Lab Objectives
 
 In this exercise, you will complete the following tasks:
 
-- Task 1: Set up Azure AI Foundry
+- Task 1: Set up Microsoft Foundry
 
 - Task 2: Create Azure AI Search
 
-## Task 1: Set up Azure AI Foundry
+## Task 1: Set up Microsoft Foundry
 
-In this task, you will explore different flow types in Azure AI Foundry by creating a AI hub through Azure portal, then deploying the GPT-4o model, and testing its capabilities in the playground from the Azure AI Foundry.
+In this task, you will explore different flow types in Microsoft Foundry by creating a AI hub through Azure portal, then deploying the GPT-4o model, and testing its capabilities in the playground from the Microsoft Foundry.
 
 1. On the **Azure portal**, search for **Microsoft Foundry (1)** and select **Microsoft Foundry (2)** from the results.
 
@@ -161,7 +161,7 @@ In this task you will create a Azure AI Search resource.
 
 In this exercise, you have completed the following:
 
-- Set up Azure AI Foundry.
+- Set up Microsoft Foundry.
 
 - Created Azure AI Search.
 

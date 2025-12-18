@@ -17,7 +17,7 @@ In this exercise, you will complete the following tasks:
 
 ## Task 1: Try the app without the Time Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by running the app without the Time Plugin to observe its default behavior.
+In this task, you will explore different flow types in Microsoft Foundry by running the app without the Time Plugin to observe its default behavior.
 
 1. Launch your AI Chat app in any of the languages, and submit the following prompt:
 
@@ -31,7 +31,7 @@ In this task, you will explore different flow types in Azure AI Foundry by runni
 
 ## Task 2: Create and import the Time Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by creating and importing the Time Plugin to enhance the app's functionality.
+In this task, you will explore different flow types in Microsoft Foundry by creating and importing the Time Plugin to enhance the app's functionality.
 
 <details>
 <summary><strong>Python</strong></summary>
@@ -369,7 +369,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 ## Task 3: Create and import the Geocoding Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by creating and importing the Geocoding Plugin to enable location-based functionality.
+In this task, you will explore different flow types in Microsoft Foundry by creating and importing the Geocoding Plugin to enable location-based functionality.
 
 1. Open a new tab in the browser, navigate to the [Geocoding API](https://geocode.maps.co/) portal, and click on the **Get API Key** button on the top.
 
@@ -544,7 +544,7 @@ In this task, you will explore different flow types in Azure AI Foundry by creat
 
 ## Task 4: Create and import the Weather Plugin
 
-In this task, you will explore different flow types in Azure AI Foundry by creating and importing the Weather Plugin to integrate weather-related functionality.
+In this task, you will explore different flow types in Microsoft Foundry by creating and importing the Weather Plugin to integrate weather-related functionality.
 
 <details>
 <summary><strong>Python</strong></summary>
