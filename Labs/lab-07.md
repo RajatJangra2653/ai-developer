@@ -175,48 +175,12 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     ![](./media/new/f5.png)
 
-1. Add the following code in the `#Import Modules` section of the file.
-    ```
-    from plugins.ImageGenerationPlugin import ImageGenerationPlugin
-    from semantic_kernel.connectors.ai.open_ai import AzureTextToImage
-    ```
+1. Copy the code from the provided link and paste it into the `chat.py` file, replacing the existing content.
 
-    ![](./media/image_114.png)
-
-1. Add the following code in the `#Challenge 07 - Add DALL-E image generation service` section of the file.
-    ```
-    image_generation_service = AzureTextToImage(
-        deployment_name=os.getenv("AZURE_TEXT_TO_IMAGE_DEPLOYMENT_NAME"),
-        api_key=os.getenv("AZURE_TEXT_TO_IMAGE_API_KEY"),
-        endpoint=os.getenv("AZURE_TEXT_TO_IMAGE_ENDPOINT"),
-        service_id="image-service"
-    )
-    kernel.add_service(image_generation_service)
-    ```
-
-    ![](./media/new/s7.png)
-
-     >**Note**: Please refer the screenshots to locate the code in proper position that helps you to avoid indentation error.
-
-1. Add the following code in the `# Placeholder for Text To Image plugin` section of the file.
-    ```
-    image_plugin = ImageGenerationPlugin()
-    image_plugin.set_kernel(kernel)
-    kernel.add_plugin(
-        image_plugin,
-        plugin_name="ImageGeneration",
-    )
-    logger.info("Image Generation plugin loaded")
-    ```
-
-    ![](./media/new/s8.png)
-
-     >**Note**: Please refer the screenshots to locate the code in proper position that helps you to avoid indentation error.
-
-1. In case you encounter any indentation error, use the code from the following URL:
     ```
     https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/refs/heads/prod/CodeBase/python/lab-07.py
     ```
+
 1. Save the file.
 
 1. Right click on `Python>src>workitems` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
@@ -252,12 +216,6 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 1. Or sometime it may ask to click on **here**, to view the image in the new tab. 
 
     ![](./media/new/v4.png)
-
-1. In case you encounter any error or unable to generate the image, use the code from the following URL, replace in `chat.py`file and re-lauch the application:
-
-    ```
-    https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/refs/heads/prod/CodeBase/python/lab-07.py
-    ```
 
 </details>
 
