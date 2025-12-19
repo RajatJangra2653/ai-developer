@@ -58,7 +58,7 @@ The lab also covers **plugins**, such as **Time & Weather utilities** for real-t
  
 Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
 
-   ![](./media/new/vm.png)
+   ![](./media/new/vm1.png)
 
 ## Virtual Machine & Lab Guide
  
