@@ -62,9 +62,13 @@ In this task, you will explore different flow types in Microsoft Foundry by depl
 
     - Enter the index name: Enter **employeehandbook (6)** 
  
-    - Then click on **Next (7)**
+    - Check the box labeled **Add vector search to this search resource (7)**
 
-      ![](./media/new/w7.png)
+    - Select an embedding model: choose **Azure OpenAi - text-embedding-ada-002 (8)** from the dropdown menu.
+
+    - Then click on **Next (9)**
+
+      ![](./media/new/v1.png)
   
 1. Click **Browse for a file** to upload documents.
 
@@ -82,9 +86,9 @@ In this task, you will explore different flow types in Microsoft Foundry by depl
 
     ![](./media/new/w11.png)
 
-1. On the **Data Management** blade, keep the default Chunk Size (1024), and click **Next** to continue.
+1. On the **Data Management** blade, select **Hybrid + semantic (1)** as the search type, keep the **default Chunk Size (1024) (2)**, and click **Next (3)** to proceed.
 
-    ![](./media/new/w12.png)
+    ![](./media/new/v2.png)
 
 1. On the **Data Connection** blade, select **API Key (1)** for authenticatio and then click on **Next (2)**.    
 
@@ -96,7 +100,7 @@ In this task, you will explore different flow types in Microsoft Foundry by depl
 
 1. The data injection might take around **5** Minutes.
 
-    ![](./media/new/r3.png)
+    ![](./media/new/v3.png)
 
 1. In the **Azure portal**, search for **AI Search (1)** using the top search bar and select **AI Search (2)** from the Services list.
 
