@@ -249,6 +249,10 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     ![](./media/image_117.png)
     
+1. Or sometime it may ask to click on **here**, to view the image in the new tab. 
+
+    ![](./media/new/v4.png)
+
 1. In case you encounter any error or unable to generate the image, use the code from the following URL, replace in `chat.py`file and re-lauch the application:
 
     ```

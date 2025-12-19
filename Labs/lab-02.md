@@ -18,10 +18,6 @@ In this exercise, you will complete the following tasks:
  
 In this task, you will explore different flow types in Microsoft Foundry by setting up Visual Studio Code, retrieving Azure OpenAI credentials, and configuring them in Python and C Sharp (C#) environments.
  
->**Note:** We are not installing or using **.NET / C Sharp (C#)** in this setup.
-Any .NET code shown is only for knowledge and reference purposes.
-Please make sure to run and modify the examples using the Python version of the Semantic Kernel, as we are working fully in a Python environment.
-
 1. In the **Lab VM**, open **Visual Studio Code** from the desktop.
 
     ![](./media/new/d1.png)
