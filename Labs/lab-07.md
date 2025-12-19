@@ -40,25 +40,6 @@ In this task, you will explore different flow types in Microsoft Foundry by depl
 
     ![](./media/new/s3.png)
 
-<details>
-<summary><strong>Python</strong></summary>
-
-1. Navigate to `Python>src` directory and open **.env (1)** file.
-
-    ![](./media/image_026.png)
-
-1. Paste the **Target URI** that you copied earlier in the exercise besides `AZURE_TEXT_TO_IMAGE_ENDPOINT` (1).
-
-    >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes (")**.
-
-1. Paste the **API key (1)** that you copied earlier in the exercise besides `AZURE_TEXT_TO_IMAGE_API_KEY` (2).
-
-    ![](./media/sk58.png)
-
-1. Save the file.
-
-</details>
-
 ## Task 2: Create and import the Image Generation Plugin
 
 In this task, you will explore different flow types in Microsoft Foundry by creating and importing the Image Generation Plugin to enable AI-powered image creation.
@@ -66,13 +47,13 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 <details>
 <summary><strong>Python</strong></summary>
 
-1. Navigate to `Python>src` directory and open **.env (1)** file.
+1. Navigate to `Python>src` directory and open **.env** file.
 
     ![](./media/new/s4.png)
 
 1. Paste the **Target URI** that you copied earlier in the exercise besides `AZURE_TEXT_TO_IMAGE_ENDPOINT`.
 
-1. Paste the **API key (1)** that you copied earlier in the exercise besides `AZURE_TEXT_TO_IMAGE_API_KEY`.
+1. Paste the **API key** that you copied earlier in the exercise besides `AZURE_TEXT_TO_IMAGE_API_KEY`.
 
     ![](./media/new/s5.png)
 
@@ -80,7 +61,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Save the file.
 
-1. Navigate to `Python>src>plugins` directory and create a new file named **ImageGenerationPlugin.py (1)**.
+1. Navigate to `Python>src>plugins` directory and create a new file named **ImageGenerationPlugin.py**.
 
     ![](./media/new/s6.png)
 
