@@ -941,6 +941,8 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     ![](./media/image_072.png)
 
+    >**Note**: If the results are not visible, close the terminal, rerun the command `dotnet run`and enter the prompt again.
+
     The AI will perform the following plan to answer the question but may do so in a different order or with a different set of functions:
 
     1️⃣ The AI should ask Semantic Kernel to call the GetDate function on the Time Plugin to get today's date to calculate the number of days until next Thursday
