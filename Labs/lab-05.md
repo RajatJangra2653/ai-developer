@@ -32,8 +32,6 @@ In this task, you will explore different flow types in Microsoft Foundry by depl
 
     ![](./media/new/w2.png)
 
-   >**Note**: If you are not able to deploy the following model in your Azure OpenAI resource **"text-embedding-ada-002"**, please use the alternative model **"text-embedding-3-large"**, which is a replacement for text-embedding-ada-002. These models are fully compatible with the lab exercises and will allow you to complete all steps without issues.
-
 1. Click on **Deploy** to the model.
 
     ![](./media/new/w3.png)
