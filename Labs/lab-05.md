@@ -137,21 +137,21 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Navigate to `Python > src` directory and open **.env** file.
 
-    ![](./media/new/t2.png)
+   ![](./media/new/t2.png)
 
 1. Paste the **AI search URL** that you copied earlier in the exercise besides `AI_SEARCH_URL` in **.env** file.
 
 1. Paste the **Primary admin key** that you copied earlier in the exercise besides `AI_SEARCH_KEY`.
 
-    ![](./media/new/t1.png)
+   ![](./media/new/t1.png)
 
-    >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes (")**.
+   >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes (")**.
 
 1. Save the file.
 
 1. Navigate to `Python > src > plugins` directory and create a new file named **ContosoSearchPlugin.py**.
 
-    ![](./media/new/t3.png)
+   ![](./media/new/t3.png)
 
 1. Add the following code to the file:
 
@@ -270,7 +270,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Navigate to `Python > src` directory and open **chat.py** file.
 
-    ![](./media/new/f5.png)
+   ![](./media/new/f5.png)
 
 1. Add the following code in the `#Import Modules` section of the file.
 
@@ -279,7 +279,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     from plugins.ContosoSearchPlugin import ContosoSearchPlugin
     ```
 
-    ![](./media/image_095.png)
+   ![](./media/image_095.png)
 
 1. Add the following code in the `#Challenge 05 - Add Text Embedding service for semantic search` section of the file.
 
@@ -294,7 +294,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     logger.info("Text Embedding service added")
     ```
 
-    ![](./media/new/t4.png)
+   ![](./media/new/t4.png)
 
      >**Note**: Please refer the screenshots to locate the code in proper position that helps you to avoid indentation error.
 
@@ -308,7 +308,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     logger.info("Contoso Handbook Search plugin loaded")
     ```
 
-    ![](./media/new/t5.png)
+   ![](./media/new/t5.png)
 
      >**Note**: Please refer the screenshots to locate the code in proper position that helps you to avoid indentation error.    
 
@@ -322,7 +322,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Right click on `Python>src>workitems` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/new/q7.png)
+   ![](./media/new/q7.png)
 
 1. Use the following command to run the app:
     ```
@@ -332,7 +332,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Now, right-click on `Python>src` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/new/f8.png)
+   ![](./media/new/f8.png)
 
 1. Use the following command to run the app:
 
@@ -362,11 +362,11 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. You will receive a response similar to the one shown below:
 
-    ![](./media/new/t1a.png)
+   ![](./media/new/t1a.png)
 
-    ![](./media/new/t1b.png)
+   ![](./media/new/t1b.png)
 
-    ![](./media/new/t1c.png)
+   ![](./media/new/t1c.png)
 
 </details>
 
@@ -375,21 +375,21 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Navigate to `Dotnet > src > BlazorAI` directory and open **appsettings.json (1)** file.
 
-    ![](./media/new/t7.png)
+   ![](./media/new/t7.png)
 
 1. Paste the **AI search URL** that you copied earlier in the exercise besides `AI_SEARCH_URL` in **appsettings.json** file.
 
-    >Note:- Ensure that every value in the **appsettings.json** file is enclosed in **double quotes (")**.
+   >Note:- Ensure that every value in the **appsettings.json** file is enclosed in **double quotes (")**.
 
 1. Paste the **Primary admin key** that you copied earlier in the exercise besides `AI_SEARCH_KEY`.
 
-    ![](./media/new/t6.png)
+   ![](./media/new/t6.png)
 
 1. Save the file.
 
 1. Navigate to `Dotnet>src>BlazorAI>Plugins` directory and create a new file named **ContosoSearchPlugin.cs**.
 
-    ![](./media/new/t8.png)
+   ![](./media/new/t8.png)
 
 1. Add the following code to the file:
 
@@ -496,7 +496,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs** file.
 
-    ![](./media/new/e1.png)
+   ![](./media/new/e1.png)
 
 1. Add the following code in the `// Import Models` section of the file.
 
@@ -507,7 +507,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     using Microsoft.Extensions.DependencyInjection;
     ```
 
-    ![](./media/image_103.png)
+   ![](./media/image_103.png)
 
 1. Add the following code in the `// Challenge 05 - Register Azure AI Foundry Text Embeddings Generation` section of the file.
 
@@ -518,7 +518,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
         Configuration["AOI_API_KEY"]!);
     ```
 
-    ![](./media/new/t9.png)
+   ![](./media/new/t9.png)
 
      >**Note**: Please refer the screenshots to locate the code in proper position that helps you to avoid indentation error.
 
@@ -555,7 +555,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     kernel.ImportPluginFromObject(searchPlugin, "HandbookPlugin");
     ```
 
-    ![](./media/new/t11.png)
+   ![](./media/new/t11.png)
 
 1. In case you encounter any indentation error, use the code from the following URL:
 
@@ -566,7 +566,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Right click on `Dotnet>src>Aspire>Aspire.AppHost` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
 
-    ![](./media/new/g8.png)
+   ![](./media/new/g8.png)
 
 1. Use the following command to run the app:
 
@@ -590,11 +590,11 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. You will receive a response similar to the one shown below:
 
-    ![](./media/image_107.png)
+   ![](./media/image_107.png)
 
-    ![](./media/image_108.png)
+   ![](./media/image_108.png)
 
-    ![](./media/image_109.png)
+   ![](./media/image_109.png)
 
 1. Once you receive the response, navigate back to the Visual studio code terminal and then press **Ctrl+C** to stop the build process.
 
