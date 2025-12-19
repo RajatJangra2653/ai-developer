@@ -248,6 +248,13 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 1. You will receive a response similar to the one shown below:
 
     ![](./media/image_117.png)
+    
+1. In case you encounter any error or unable to generate the image, use the code from the following URL, replace in `chat.py`file and re-lauch the application:
+
+    ```
+    https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/refs/heads/prod/CodeBase/python/lab-07.py
+    ```
+
 </details>
 
 <details>
