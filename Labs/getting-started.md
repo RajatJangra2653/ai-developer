@@ -1,4 +1,4 @@
-# Azure AI Foundry and Semantic Kernel Fundamentals
+# Microsoft Foundry and Semantic Kernel Fundamentals
 
 ### Overall Estimated Duration: 4 Hours
 

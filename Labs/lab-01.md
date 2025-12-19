@@ -60,8 +60,6 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     ![](./media/new/a9.png)
 
-    >**Note**: If you are not able to deploy the following model in your Microsoft Foundry **"gpt-4o"**, please use the alternative model **"gpt-4o-mini"**, which is a replacement for GPT-4o. These models are fully compatible with the lab exercises and will allow you to complete all steps without issues
-
 1. On the **Deploy gpt-4o** blade, configure the required deployment settings as specified below:
 
     - **Deployment type**: Choose **Standard (1)** 
