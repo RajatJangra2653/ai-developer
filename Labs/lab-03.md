@@ -925,10 +925,10 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     ```
     var weatherPlugin = new WeatherPlugin(
         kernel.Services.GetRequiredService<IHttpClientFactory>());
-        kernel.ImportPluginFromObject(weatherPlugin, "WeatherPlugin");
+    kernel.ImportPluginFromObject(weatherPlugin, "WeatherPlugin");
     ```
 
-    ![](./media/image_071.png)
+    ![](./media/new/j1.png)
 
 1. In case you encounter any indentation error, use the code from the following URL:
 
