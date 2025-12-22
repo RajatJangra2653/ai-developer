@@ -100,9 +100,9 @@ After completing the task, hit the **Validate** button under the Validation tab 
  
      ![Enter Your Username](./media/new/email.png)
  
-1. Now enter the following password and click on **Sign in (2)**.
+1. Now enter the following temporary password and click on **Sign in (2)**.
  
-   - **Password:** <inject key="AzureAdUserPassword"></inject> **(1)**
+   - **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject> **(1)**
  
       ![Enter Your Password](./media/new/pass.png)
 
