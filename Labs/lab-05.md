@@ -116,13 +116,12 @@ In this task, you will explore different flow types in Microsoft Foundry by depl
 
     ![](./media/new/r7.png)
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+  > **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
+  > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next  task. 
+  > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+  > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help
 
-   - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
-   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-
-<validation step="aba3f1c2-bf55-4ca3-baf6-fcaa280552fa" />  
+<validation step="aba3f1c2-bf55-4ca3-baf6-fcaa280552fa" />
 
 ## Task 2: Create a Semantic Search Plugin to query the AI Search Index
 
@@ -135,21 +134,21 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Navigate to `Python > src` directory and open **.env** file.
 
-   ![](./media/new/t2.png)
+    ![](./media/new/t2.png)
 
 1. Paste the **AI search URL** that you copied earlier in the exercise besides `AI_SEARCH_URL` in **.env** file.
 
 1. Paste the **Primary admin key** that you copied earlier in the exercise besides `AI_SEARCH_KEY`.
 
-   ![](./media/new/t1.png)
+    ![](./media/new/t1.png)
 
-   >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes (")**.
+    >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes (")**.
 
 1. Save the file.
 
 1. Navigate to `Python > src > plugins` directory and create a new file named **ContosoSearchPlugin.py**.
 
-   ![](./media/new/t3.png)
+    ![](./media/new/t3.png)
 
 1. Add the following code to the file:
 
@@ -268,7 +267,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Navigate to `Python > src` directory and open **chat.py** file.
 
-   ![](./media/new/f5.png)
+    ![](./media/new/f5.png)
 
 1. Add the following code in the `#Import Modules` section of the file.
 
