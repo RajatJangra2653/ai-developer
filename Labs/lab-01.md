@@ -2,21 +2,56 @@
 
 ### Estimated Duration: 20 Minutes
 
-## Lab Overview
+## Overview
 
-This hands-on lab provides experience with Microsoft Foundry and its core capabilities, including AI model deployment and integration with Azure AI Search. Designed for those new to the platform, the lab guides you step-by-step to set up an AI project, deploy a GPT-4o model, and configure essential AI services.
+In this exercise, you will gain hands-on experience setting up **Microsoft Foundry** and deploying the GPT-4o model. You will create an Azure AI Search resource to enable document retrieval capabilities and configure a Microsoft Foundry AI Hub to deploy the GPT-4o model. Finally, you will test the deployed model's capabilities in the Foundry Playground.
 
-You will explore Microsoft Foundry to create and manage AI projects, use Models + Endpoints to deploy base models, and leverage Azure AI Search for scalable, efficient data retrieval. Ensure all prerequisites are met before starting, as the cloud-based Microsoft Foundry platform allows you to complete the lab remotely.
-
-## Lab Objectives
+## Objectives
 
 In this exercise, you will complete the following tasks:
+- Task 1: Create Azure AI Search
+- Task 2: Set up Microsoft Foundry
 
-- Task 1: Set up Microsoft Foundry
+## Task 1 : Create Azure AI Search
 
-- Task 2: Create Azure AI Search
+In this task you will create a Azure AI Search resource.
 
-## Task 1: Set up Microsoft Foundry
+1. On the Azure portal search bar, search for **AI Search (1)** and select **AI Search (2)** from the results.
+
+    ![](./media/new/c1.png)
+
+1. From the left navigation pane, ensure **AI Search (1)** is selected and then click on **+ Create (2)** from the top menu bar.
+
+    ![](./media/new/c2.png)
+
+1. On the **Create a search service** page, provide the following details and then click on **Review+create (6)**:
+
+    - **Subscription:** Leave the default one **(1)**
+
+    - **Resource group:** Select **ai-foundry-<inject key="Deployment ID" enableCopy="false"></inject> (2)**
+
+    - **Service name:** Enter **ai-search-<inject key="Deployment ID" enableCopy="false"></inject> (3)**
+
+    - **Region:** Select **<inject key="Region" enableCopy="false"></inject> (4)** 
+
+    - Pricing tier: Select **Standard (5)**
+
+        >**Note:** In case you do not see the Standard tier, it means that the region selected does not have the Standard tier available right now. Please select another region and deploy the resource.
+
+      ![](./media/new/aisearch-1401.png)
+
+1. Click **Create** to deploy the search service.
+
+    ![](./media/new/E1T1S5-1401.png)
+
+  > **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
+  > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next  task. 
+  > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+  > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help
+ 
+<validation step="a3e77878-3ce2-4d69-b4e6-c88d4a0f45ec" />
+
+## Task 2: Set up Microsoft Foundry
 
 In this task, you will explore different flow types in Microsoft Foundry by creating a AI hub through Azure portal, then deploying the GPT-4o model, and testing its capabilities in the playground from the Microsoft Foundry.
 
@@ -35,6 +70,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     - **Resource group:** Select **ai-foundry-<inject key="Deployment ID" enableCopy="false"></inject> (2)**
 
     - **Region:** Select **<inject key="Region" enableCopy="false"></inject> (3)**
+        >**Note:** Ensure to select the same region used while creating the Azure AI Search resource.
 
     - **Name:** Enter **ai-foundry-hub-<inject key="Deployment ID" enableCopy="false"></inject> (4)**
 
@@ -60,13 +96,13 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     ![](./media/new/a9.png)
 
-1. On the **Deploy gpt-4o** blade, configure the required deployment settings as specified below:
+1. On the **Deploy gpt-4o** blade, click on **Customize** and configure the required deployment settings as specified below:
 
     - **Deployment type**: Choose **Standard (1)** 
     
     - **Model version**: Select **2024-08-06 (Default) (2)**
 
-    - **Tokens per Minute Rate Limit**: Limit to **50K (3)**
+    - **Tokens per Minute Rate Limit**: Limit to **50K (3)** (You can use keyboard arrows to increase or decrease the value)
 
     - Click on **Connect and deploy (4)**
 
@@ -82,11 +118,11 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
      >**Note**: **xxxxx** refers to randomly generated suffix.
 
-1. From left navigation pane, select **Model + endpoints (1)**, then select **gpt-4o (2)** model and the click on **Open in Playground (3)**.
+1. From left navigation pane, select **Model + endpoints (1)** from the **My assets** section, then select **gpt-4o (2)** model and the click on **Open in Playground (3)**.
 
     ![](./media/new/b4.png)
 
-1. Replace the existing text with `Extract the United States Postal Service (USPS) formatted address from the following email` **(1)** then click on **Apply changes (2)**. Using this you can explore the capabilities of Azure OpenAI.
+1. In the Setup section, replace the existing text with `Extract the United States Postal Service (USPS) formatted address from the following email` **(1)** then click on **Apply changes (2)**. Using this you can explore the capabilities of Azure OpenAI.
 
     ![](./media/new/b5.png)
 
@@ -118,44 +154,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     ![](./media/new/b8.png)
 
-## Task 2: Create Azure AI Search
-
-In this task you will create a Azure AI Search resource.
-
-1. Navigate back to the **Azure portal**.
-
-1. On the search bar, search for **AI Search (1)** and select **AI Search (2)** from the results.
-
-    ![](./media/new/c1.png)
-
-1. From the left navigation pane, ensure **AI Search (1)** is selected and then click on **+ Create (2)** from the top menu bar.
-
-    ![](./media/new/c2.png)
-
-1. On the **Create a search service** page, provide the following details and then click on **Review+create (5)**:
-
-    - **Subscription:** Leave the default one **(1)**
-
-    - **Resource group:** Select **ai-foundry-<inject key="Deployment ID" enableCopy="false"></inject> (2)**
-
-    - **Service name:** Enter **ai-search-<inject key="Deployment ID" enableCopy="false"></inject> (3)**
-
-    - **Region:** Select **<inject key="Region" enableCopy="false"></inject> (4)** 
-
-      ![](./media/new/c3.png)
-
-1. Click **Create** to deploy the search service.
-
-    ![](./media/new/c4.png)
-
-  > **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
-  > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next  task. 
-  > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-  > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help
- 
-<validation step="a3e77878-3ce2-4d69-b4e6-c88d4a0f45ec" />
-
-## Review
+## Summary
 
 In this exercise, you have completed the following:
 

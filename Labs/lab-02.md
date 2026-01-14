@@ -2,11 +2,12 @@
  
 ### Estimated Duration: 25 Minutes
  
-## Lab Overview
+## Overview
 
-This hands-on lab provides practical experience with Semantic Kernel and the Microsoft Foundry GPT-4o model. Designed for those new to AI development, the lab guides you step-by-step on how to build an intelligent chat feature within a starter application. You will use the Semantic Kernel framework to connect with the GPT-4o model, implement a chat API that sends user prompts, and return dynamic AI-generated responses.
+In this exercise, you will gain hands-on experience building an intelligent chat feature using the **Semantic Kernel** framework integrated with the **Microsoft Foundry GPT-4o** model. You will set up the development environment, configure necessary credentials, and implement a chat API that sends user prompts to the GPT-4o model via Semantic Kernel, returning dynamic AI-generated responses within a starter application.
+
  
-## Lab Objectives
+## Objectives
 
 In this exercise, you will complete the following tasks:
 
@@ -34,16 +35,20 @@ In this task, you will explore different flow types in Microsoft Foundry by sett
 
     ![](./media/new/d2.png)
 
+    >**Note:** If a pop up window opens asking for Github Copilot chat wants to sign in, click on **Cancel**.
+
 1. Navigate back to **Microsoft Foundry** portal.
 
 1. From the **Overview (1)** page, copy the **API Key (2)**, select **Azure OpenAI (3)** under Libraries, and copy the **Azure OpenAI endpoint (4)** using the copy icons. And paste it into **Notepad** to be used in the upcoming exercises
 
-    ![](./media/new/d4.png)
+    ![](./media/new/E2T1S6-1401.png)
+
+1. Perform the further steps based on your preferred programming language:
 
 <details>
 <summary><strong>Python</strong></summary>
 
-1. Expand **Python** **(1)** folder, then expand **src** **(2)** directory and open **.env** (3) file.
+1. In VS Code, expand **Python** **(1)** folder, then expand **src** **(2)** directory and open **.env** (3) file.
 
     ![](./media/new/d5.png)
 
@@ -60,7 +65,7 @@ In this task, you will explore different flow types in Microsoft Foundry by sett
 <details>
 <summary><strong>C Sharp(C#)</strong></summary>
 
-1. Navigate to `Dotnet>src>BlazorAI` directory and open **appsettings.json** file.
+1. In VS Code, navigate to `Dotnet>src>BlazorAI` directory and open **appsettings.json** file.
 
     ![](./media/sk23.png)
 
@@ -80,7 +85,9 @@ In this task, you will explore different flow types in Microsoft Foundry by sett
 
 ## Task 2: Update the code files and run the app
 
-In this task, you will explore different flow types in Microsoft Foundry by updating code files, running the AI-powered app in Python and C#, and testing responses to user prompts.
+In this task, you will explore different flow types in Microsoft Foundry by updating code files, running the AI-powered app in Python or C#, and testing responses to user prompts.
+
+>**Note:** Perform the further steps based on your preferred programming language:
 
 <details>
 <summary><strong>Python</strong></summary>
@@ -132,7 +139,6 @@ In this task, you will explore different flow types in Microsoft Foundry by upda
 
     ![](./media/new/d10.png)
 
-
 1. Add the following code in the `#return result` section of the file.
 
     ```
@@ -160,13 +166,14 @@ In this task, you will explore different flow types in Microsoft Foundry by upda
     streamlit run app.py
     ```
 
-1. If you are asked for any email to register, feel free to use the below provided email, and hit **Enter**:
+1. If you are asked for any email to register, feel free to use the below provided email, and hit **Enter**. This will automatically open the app in the browser.
 
     ```
     test@gmail.com
     ```
 
     ![](./media/image_036.png)
+
 1. If the app does not open automatically in the browser, you can access it using the following **URL**:
 
     ```
@@ -257,7 +264,7 @@ In this task, you will explore different flow types in Microsoft Foundry by upda
 
 </details>
 
-## Review
+## Summary
 
 In this exercise, you have completed the following:
 

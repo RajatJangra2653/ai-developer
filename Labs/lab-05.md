@@ -2,11 +2,11 @@
 
 ### Estimated Duration: 40 Minutes
 
-## Lab Overview
+## Overview
 
-This hands-on lab introduces you to the Retrieval-Augmented Generation (RAG) pattern—an AI architecture that enhances response quality by integrating relevant external knowledge into the generative process. Designed for those new to RAG, the lab guides you through how retrieval mechanisms work alongside generative models to deliver more accurate, informed, and context-aware outputs. You will also gain a clear understanding of data privacy and security prompts, completions, embeddings, and training data remaining fully isolated—they are not shared with other customers, OpenAI, Microsoft, or third parties, nor are they used to improve models automatically.
+In this exercise, you will explore the Retrieval-Augmented Generation (RAG) pattern—an AI architecture that enhances response quality by integrating relevant external knowledge into the generative process. Designed for those new to RAG, the lab guides you through how retrieval mechanisms work alongside generative models to deliver more accurate, informed, and context-aware outputs. You will also gain a clear understanding of data privacy and security prompts, completions, embeddings, and training data remaining fully isolated—they are not shared with other customers, OpenAI, Microsoft, or third parties, nor are they used to improve models automatically.
 
-## Lab Objectives
+## Objectives
 
 In this exercise, you will complete the following tasks:
 
@@ -18,15 +18,11 @@ In this exercise, you will complete the following tasks:
 
 In this task, you will explore different flow types in Microsoft Foundry by deploying a Text Embedding model to enable text representation and similarity analysis.
 
-1. Navigate to the [Microsoft Foundry](https://ai.azure.com/) portal.
-
-1. Select the listed **aifoundryhubxxxxxx** resource to continue working in **Microsoft Foundry**.
-
-    ![](./media/new/b3.png)
+1. In your browser window in Lab VM, navigate to the **Microsoft Foundry** portal.
 
 1. From the left navigation pane, select **Model + endpoints (1)**, then click on **+ Deploy model (2)** drop-down and click **Deploy base model (3)**.
 
-    ![](./media/new/a8.png)
+    ![](./media/new/E5T1S2-1401.png)
 
 1. Search for **text-embedding-ada-002 (1)**, select **text-embedding-ada-002 (2)** model, and click on **Confirm (3)**.
 
@@ -40,7 +36,7 @@ In this task, you will explore different flow types in Microsoft Foundry by depl
 
     ![](./media/new/w4.png)
 
-1. Expand **Add your data (1)** section and select **+ Add a data source (2)**.
+1. Scroll down in the **Setup** section and expand **Add your data (1)** and select **+ Add a data source (2)**.
 
     ![](./media/new/w5.png)
 
@@ -597,7 +593,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 </details>
 
-## Review
+## Summary
 
 In this exercise, you have completed the following:
 

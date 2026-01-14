@@ -2,12 +2,11 @@
 
 ### Estimated Duration: 25 Minutes
 
-## Lab Overview
+## Overview
 
-This hands-on lab introduces content filtering in Microsoft Foundry to help you build safer, more responsible AI applications.
-You will learn to apply built-in filters, adjust settings, and create custom rules to block unwanted content—all within Microsoft Foundry Studio.
+In this exercise, you will gain hands-on experience building safer and more responsible AI applications by leveraging content filtering capabilities in **Microsoft Foundry**.
 
-## Lab Objectives
+## Objectives
 
 In this exercise, you will complete the following tasks:
 
@@ -19,11 +18,7 @@ In this exercise, you will complete the following tasks:
 
 In this task, you will explore different flow types in Microsoft Foundry by adjusting filter settings to refine search results and improve query accuracy.
 
-1. Navigate to the [Microsoft Foundry](https://ai.azure.com/) portal.
-
-1. Select the listed **aifoundryhubxxxxxx** resource to continue working in **Microsoft Foundry**.
-
-    ![](./media/new/b3.png)
+1. Navigate back to the **Microsoft Foundry** portal in your browser.
 
 1. From the left navigation pane, click on **Guardrails + controls (1)**. Select **Content filters (2)** tab from the top menu bar and click **+ Create content filter (3)**.
 
@@ -37,7 +32,7 @@ In this task, you will explore different flow types in Microsoft Foundry by adju
 
 1. On the **Apply filter to deployments (optional)** page, select **both deployments (1)** and click **Next (2)** to continue.
 
-    ![](./media/sk45.png)
+    ![](./media/new/E6T1S5-1401.png)
 
 1. If you get a **Replacing existing content filter** warning, click on **Replace**.
 
@@ -63,7 +58,7 @@ In this task, you will explore different flow types in Microsoft Foundry by filt
 
       ![](./media/new/y6.png)
 
-1. Click on **CustomBlocklist<inject key="Deployment ID" enableCopy="false"></inject>** created earlier.
+1. Click on **CustomBlocklist<inject key="Deployment ID" enableCopy="false"></inject>** created.
 
     ![](./media/new/y7.png)
 
@@ -96,7 +91,7 @@ In this task, you will explore different flow types in Microsoft Foundry by filt
 
       ![](./media/new/y12.png)
 
-## Review
+## Summary
 
 In this exercise, you have completed the following:
 
