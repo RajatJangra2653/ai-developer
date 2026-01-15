@@ -2,11 +2,11 @@
 
 ### Estimated Duration: 25 Minutes
 
-## Lab Overview
+## Overview
 
-This hands-on lab introduces image generation capabilities to your reference application using DALL·E, an advanced AI model that transforms text into visuals. Designed for those new to AI-powered creativity, the lab guides you step-by-step in integrating DALL·E to generate images from descriptive text prompts. You will explore how DALL·E can create visuals ranging from realistic objects and scenes to imaginative, abstract concepts—unlocking new possibilities for creative expression and user interaction.
+In this exercise, you will integrate image generation capabilities into your AI applications using DALL·E, an advanced AI model developed by OpenAI that transforms text prompts into vivid images. You will explore how DALL·E can create visuals ranging from realistic objects and scenes to imaginative, abstract concepts unlocking new possibilities for creative expression and user interaction.
 
-## Lab Objectives
+## Objectives
 
 In this exercise, you will complete the following tasks:
 
@@ -18,13 +18,7 @@ In this exercise, you will complete the following tasks:
 
 In this task, you will explore different flow types in Microsoft Foundry by deploying a DALL-E model to generate images from text prompts.
 
-1. Navigate to the [Microsoft Foundry](https://ai.azure.com/) portal.
-
-1. Select the listed **aifoundryhubxxxxxx** resource to continue working in **Microsoft Foundry**.
-
-    ![](./media/new/b3.png)
-
-1. From the left navigation pane, select **Model + endpoints (1)**, then click on **+ Deploy model (2)** drop-down and click **Deploy base model (3)**.
+1. On the **Microsoft Foundry** prtal, from the left navigation pane, select **Model + endpoints (1)**, then click on **+ Deploy model (2)** drop-down and click **Deploy base model (3)**.
 
     ![](./media/new/a8.png)
 
@@ -385,7 +379,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 </details>
 
-## Review
+## Summary
 
 In this exercise, you have completed the following:
 

@@ -2,11 +2,11 @@
 
 ### Estimated Duration: 30 Minutes
 
-## Lab Overview
+## Overview
 
-This hands-on lab introduces **multi-agent system development**, where a user request is processed by multiple agents, each with a distinct **persona and responsibility**. Designed for those new to **AI-driven automation**, the lab guides you through integrating agents that collaborate to generate a well-rounded response. Whether handling specialized tasks or combining expertise, this system ensures comprehensive context-aware outputs. By the end of this lab, you will understand how to **orchestrate multi-agent interactions** to enhance AI-driven decision-making and user experiences.
+In this exercise, you will gain hands-on experience building a multi-agent chat system using the **Semantic Kernel** framework integrated with the **Microsoft Foundry GPT-4o** model. This lab introduces multi-agent system development, where a user request is processed by multiple agents, each with a distinct persona and responsibility. Designed for those new to AI driven automation, the lab guides you through integrating agents that collaborate to generate a well-rounded response. Whether handling specialized tasks or combining expertise, this system ensures comprehensive context-aware outputs. By the end of this lab, you will understand how to orchestrate multi-agent interactions to enhance AI-driven decision-making and user experiences.
 
-## Lab Objective
+## Objective
 
 In this exercise, you will complete the following task:
 
@@ -108,7 +108,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 </details>
 
-## Review
+## Summary
 
 In this exercise, you have completed the following:
 

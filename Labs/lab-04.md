@@ -2,11 +2,11 @@
 
 ### Estimated Duration: 25 Minutes
 
-## Lab Overview
+## Overview
 
-This hands-on lab explores the integration of OpenAPI with Semantic Kernel to enhance AI-driven applications. Designed for developers new to API orchestration, the lab guides you through leveraging OpenAPI specifications to load external services as plugins dynamically. You will learn to import the provided WorkItems API as an OpenAPI plugin, enabling seamless interaction through AI-driven prompts. By the end of this lab, you will understand how OpenAPI simplifies API integration, reduces manual coding, and enhances the automation of external service calls.
+In this exercise, you will explore the integration of OpenAPI with Semantic Kernel to enhance AI-driven applications. Designed for developers new to API orchestration, the lab guides you through leveraging OpenAPI specifications to load external services as plugins dynamically. You will learn to import the provided WorkItems API as an OpenAPI plugin, enabling seamless interaction through AI-driven prompts. By the end of this lab, you will understand how OpenAPI simplifies API integration, reduces manual coding, and enhances the automation of external service calls.
 
-## Lab Objectives
+## Objectives
 
 In this exercise, you will complete the following tasks:
 
@@ -18,12 +18,12 @@ In this exercise, you will complete the following tasks:
 
 In this task, you will explore different flow types in Microsoft Foundry by running the app without the OpenAPI Plugin to observe its default behavior.
 
-1. Launch your AI Chat app in any of the languages, submit the following prompt, and see how it responds:
+1. Launch your AI Chat app in any of your preferred languages, and submit the following prompt, and see how it responds:
 
     ```
     What are my work items?
     ```
-1. You will receive a response similar to the one shown below:
+1. You will receive a response similar to the one shown below, stating that it cannot access the work items:
 
     ![](./media/new/q5.png)
 
@@ -44,11 +44,17 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     ```
     >**Note**:- Please don't close the `terminal`.
 
-1. You can find the OpenAPI spec in the following path `http://127.0.0.1:8000/openapi.json`.
+1. Open the following link in a new browser tab to reveiw the OpenAPI spec: 
+    ```
+    http://127.0.0.1:8000/openapi.json
+    ```
 
     ![](./media/image_075.png)
 
-1. The Swagger page can be found at `http://127.0.0.1:8000/docs`.
+1. Open the following link in another browser tab to go to the Swagger page for the api: 
+    ```
+    http://127.0.0.1:8000/docs
+    ```
 
     ![](./media/image_076.png)
 
@@ -103,17 +109,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 <details>
 <summary><strong>C Sharp(C#)</strong></summary>
 
-1. Right click on `Dotnet>src>Aspire>Aspire.AppHost` **(1)** in the left pane and select **Open in Integrated Terminal (2)**.
-
-    ![](./media/new/g8.png)
-
-1. Use the following command to run the app:
-    ```
-    dotnet run
-    ```
-    >**Note**:- Please don't close the `terminal`.
-
-1. You can find the OpenAPI spec in the following path `http://localhost:5115/swagger/v1/swagger.json`.
+1. You can review the OpenAPI spec in the following path `http://localhost:5115/swagger/v1/swagger.json`.
 
     ![](./media/image_079.png)
 
@@ -177,7 +173,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 </details>
 
-## Review
+## Summary
 
 In this exercise, you have completed the following:
 

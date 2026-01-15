@@ -2,11 +2,13 @@
 
 ### Estimated Duration: 50 Minutes
 
-## Lab Overview
+## Overview
 
-This hands-on lab explores the power of plugins in enhancing LLM development with Semantic Kernel. Designed for those new to AI extensibility, the lab guides you through building and integrating plugins to expand the capabilities of your chatbot. You will implement a time and weather retrieval plugin, enabling your AI to access real-time and contextual data beyond its training scope. Additionally, you will learn to develop Semantic Kernel plugins in Python and leverage Auto Function Calling to chain them together seamlessly.
+In this exercise, you will explore the power of plugins in enhancing LLM development with Semantic Kernel. Designed for those new to AI extensibility, the lab guides you through building and integrating plugins to expand the capabilities of your chatbot. 
 
-## Lab Objectives
+You will implement a time and weather retrieval plugin, enabling your AI to access real-time and contextual data beyond its training scope. Additionally, you will learn to develop Semantic Kernel plugins in Python and leverage Auto Function Calling to chain them together seamlessly.
+
+## Objectives
 
 In this exercise, you will complete the following tasks:
 
@@ -19,7 +21,7 @@ In this exercise, you will complete the following tasks:
 
 In this task, you will explore different flow types in Microsoft Foundry by running the app without the Time Plugin to observe its default behavior.
 
-1. Launch your AI Chat app in any of the languages, and submit the following prompt:
+1. Launch your AI Chat app in any of your preferred languages, and submit the following prompt:
 
     ```
     What time is it?
@@ -957,7 +959,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 </details>
 
-## Review
+## Summary
 
 In this exercise, you have completed the following:
 

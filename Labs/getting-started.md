@@ -74,19 +74,13 @@ To get a better understanding of your lab resources and credentials, navigate to
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
  
- ![Use the Split Window Feature](./media/new/split.png)
+ ![Use the Split Window Feature](./media/new/split-indow-1401.png)
  
 ## Managing Your Virtual Machine
  
 Feel free to **Start, Stop, or Restart (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
  
-![Manage Your Virtual Machine](./media/new/res.png)
-
-## Lab Validation
-
-After completing the task, hit the **Validate** button under the Validation tab integrated within your lab guide. If you receive a success message, you can proceed to the next task; if not, carefully read the error message and retry the step, following the instructions in the lab guide.
-
-   ![Inline Validation](./media/new/validate.png)
+![Manage Your Virtual Machine](./media/new/res-1401.png)
 
 ## Let's Get Started with Azure Portal
 
@@ -110,6 +104,9 @@ After completing the task, hit the **Validate** button under the Validation tab 
 
     ![](./media/new/stay.png)
 
+1. If a **Welcome to Microsoft Azure** pop-up window appears, simply click **"Cancel"** to skip the tour.
+
+<!--- MFA Setup Steps 
 1. If an **Action required** pop-up window appears, click on **Next**.
 
    ![Ask Later](./media/ask-later.png)
@@ -140,12 +137,7 @@ After completing the task, hit the **Validate** button under the Validation tab 
 1. Tap on **Finish** in the mobile device.
 
    >NOTE: While logging in again, enter the digits displayed on the screen in the **Authenticator app** and click on Yes.
-
-1. If a **Welcome to Microsoft Azure** pop-up window appears, simply click **"Cancel"** to skip the tour.
-
-1. You can use the **Previous (1)** and **Next (2)** buttons to navigate through the lab guide.
-
-   ![](./media/lc-image(3).png)
+-->
 
 ## Support Contact
 
