@@ -1,10 +1,12 @@
-# Exercise 7: Image Generation using DALL-E
+# Exercise 7: Image Generation using DALL-E (Read-only)
 
 ### Estimated Duration: 25 Minutes
 
 ## Overview
 
 In this exercise, you will integrate image generation capabilities into your AI applications using DALL·E, an advanced AI model developed by OpenAI that transforms text prompts into vivid images. You will explore how DALL·E can create visuals ranging from realistic objects and scenes to imaginative, abstract concepts unlocking new possibilities for creative expression and user interaction.
+
+>**Note:** As DALL-E model is being retired soon, we have observed that deployments may not work consistently across all subscriptions; therefore, this exercise is provided as a read-only exercise. You may review the steps and content to understand the workflow without performing the deployment.
 
 ## Objectives
 
