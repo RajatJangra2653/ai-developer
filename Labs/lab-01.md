@@ -12,9 +12,9 @@ In this exercise, you will complete the following tasks:
 - Task 1: Create Azure AI Search
 - Task 2: Set up Microsoft Foundry
 
-## Task 1 : Create Azure AI Search
+## Task 1: Create Azure AI Search
 
-In this task you will create a Azure AI Search resource.
+In this task ,you will create an Azure AI Search resource.
 
 1. On the Azure portal search bar, search for **AI Search (1)** and select **AI Search (2)** from the results.
 
@@ -42,14 +42,7 @@ In this task you will create a Azure AI Search resource.
 
 1. Click **Create** to deploy the search service.
 
-    ![](./media/new/E1T1S5-1401.png)
-
-  > **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
-  > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next  task. 
-  > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-  > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help
- 
-<validation step="a3e77878-3ce2-4d69-b4e6-c88d4a0f45ec" />
+    ![](./media/new/aisearch-1501.png)
 
 ## Task 2: Set up Microsoft Foundry
 
@@ -153,6 +146,13 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 1. You will receive a response similar to the one shown below:
 
     ![](./media/new/b8.png)
+
+  > **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
+  > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next  task. 
+  > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+  > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help
+ 
+<validation step="a3e77878-3ce2-4d69-b4e6-c88d4a0f45ec" />
 
 ## Summary
 
