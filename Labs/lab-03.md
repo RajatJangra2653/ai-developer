@@ -38,8 +38,9 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 <details>
 <summary><strong>Python</strong></summary>
 
-1. Navigate to `Python>src>plugins` directory, right click on **Plugins** then click on **New file** and then create a new file named **time_plugin.py (1)**.
+1. Navigate to `Python>src>plugins` directory, right click on **Plugins(1)** then click on **New file(2)** and then create a new file named **time_plugin.py**.
 
+    ![](./media/new/E3T2S1.png)
     ![](./media/new/f4.png)
 
 1. Add the following code to the file:
@@ -88,7 +89,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
                 return "Invalid date format. Please use YYYY-MM-DD."
     ```
 
-1. Save the file.
+1. Use **Ctrl+S** to save the file.
 
 1. Navigate to `Python>src` directory and open **chat.py** file.
 
@@ -157,7 +158,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 1. Since the AI has the **Time Plugin**, it will be able to provide real-time information, you will get a response similar to the following:
 
     ```
-    The current time is 15:01:27 on December 17, 2025.
+    The current time is 16:34:11 on January 22, 2026.
     ```
 
     ![](./media/new/f9.png)
@@ -167,8 +168,9 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 <details>
 <summary><strong>C Sharp(C#)</strong></summary>
 
-1. Navigate to `Dotnet>src>BlazorAI>Plugins` directory, right click on **Plugins** then click on **New file** and then  and create a new file named **TimePlugin.cs (1)**.
+1. Navigate to `Dotnet>src>BlazorAI>Plugins` directory, right click on **Plugins(1)** then click on **New file(2)** and then  and create a new file named **TimePlugin.cs**.
 
+    ![](./media/E3T2S1CS.png)
     ![](./media/image_049.png)
 1. Add the following code to the file:
     ```
@@ -273,7 +275,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
         }
     }
     ```
-1. Save the file.
+1. Use **Ctrl+S** to save the file.
 
 1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs** file.
 
@@ -353,14 +355,18 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     ```
     dotnet run
     ```
-1. Open a new tab in the browser and navigate to the link for **blazor-aichat**, i.e. **https://localhost:7118/**.
+1. Open a new tab in the browser and navigate to the below link for **blazor-aichat**
+
+    ```
+    https://localhost:7118/
+    ```
 1. Submit the following prompt:
     ```
     What time is it?
     ```
 1. Since the AI has the **Time Plugin**, it will be able to provide real-time information, and you will get a response similar to the following:
     ```
-    The current time is 3:43 PM on January 23, 2025.
+    The current time is 3:43 PM on January 23, 2026.
     ```
 
     ![](./media/new/f3.png)
@@ -373,7 +379,11 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 In this task, you will explore different flow types in Microsoft Foundry by creating and importing the Geocoding Plugin to enable location-based functionality.
 
-1. Open a new tab in the browser, navigate to the [Geocoding API](https://geocode.maps.co/) portal, and click on the **Get API Key** button on the top.
+1. Open a new tab in the browser, navigate to the Geocoding API portal using below link and click on the **Get API Key** button on the top.
+
+    ```
+    https://geocode.maps.co/
+    ```
 
     ![](./media/new/g1.png)
 
@@ -402,7 +412,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     ![](./media/new/g5.png)
 
-    >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes (")**.
+    >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes ("")**.
 
 1. Save the file.
 
@@ -523,7 +533,12 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     dotnet run
     ```
 
-1. Open a new tab in the browser and navigate to the link for **blazor-aichat** i.e **https://localhost:7118/**
+1. Open a new tab in the browser and navigate to the below link for **blazor-aichat**
+
+    ```
+    https://localhost:7118/
+    ```
+
 
 1. Submit the following prompt:
 
@@ -931,7 +946,11 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     dotnet run
     ```
 
-1. Open a new tab in the browser and navigate to the link for **blazor-aichat**, i.e. **https://localhost:7118/**.
+1. Open a new tab in the browser and navigate to the below link for **blazor-aichat**
+
+    ```
+    https://localhost:7118/
+    ```
 
 1. Submit the following prompt:
 
@@ -939,7 +958,9 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     What is today's weather in San Francisco?
     ```
     
-1. You will receive a response similar to the one shown below:
+1. You will receive a response similar to the one shown below.
+
+    ![](./media/E3T4S12.png)
 
     ![](./media/image_072.png)
 

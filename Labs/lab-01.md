@@ -28,7 +28,7 @@ In this task ,you will create an Azure AI Search resource.
 
     - **Subscription:** Leave the default one **(1)**
 
-    - **Resource group:** Select **ai-foundry-<inject key="Deployment ID" enableCopy="false"></inject> (2)**
+    - **Resource group:** Select **ai-foundry (2)**
 
     - **Service name:** Enter **ai-search-<inject key="Deployment ID" enableCopy="false"></inject> (3)**
 
@@ -60,10 +60,9 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     - **Subscription**: Leave the default one **(1)**
 
-    - **Resource group:** Select **ai-foundry-<inject key="Deployment ID" enableCopy="false"></inject> (2)**
+    - **Resource group:** Select **ai-foundry (2)**
 
     - **Region:** Select **<inject key="Region" enableCopy="false"></inject> (3)**
-        >**Note:** Ensure to select the same region used while creating the Azure AI Search resource.
 
     - **Name:** Enter **ai-foundry-hub-<inject key="Deployment ID" enableCopy="false"></inject> (4)**
 
