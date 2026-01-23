@@ -39,7 +39,7 @@ In this task, you will explore different flow types in Microsoft Foundry by sett
 
 1. Navigate back to **Microsoft Foundry** portal.
 
-1. From the **Overview (1)** page, copy the **API Key (2)**, select **Azure OpenAI (3)** under Libraries, and copy the **Azure OpenAI endpoint (4)** using the copy icons. And paste it into **Notepad** to be used in the upcoming exercises
+1. From the **Overview (1)** page, select **Azure OpenAI (2)** under Libraries, copy the **API Key (3)** and copy the **Azure OpenAI endpoint (4)** using the copy icons. And paste it into **Notepad** to be used in the upcoming exercises
 
     ![](./media/new/E2T1S6-1401.png)
 
@@ -53,7 +53,7 @@ In this task, you will explore different flow types in Microsoft Foundry by sett
     ![](./media/new/d5.png)
 
 1. Paste **Azure OpenAI Service endpoint** copied earlier in the exercise besides `AZURE_OPENAI_ENDPOINT`.
-    >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes (")**.
+    >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes ("")**.
 1. Paste **API key** copied earlier in the exercise besides `AZURE_OPENAI_API_KEY`.
 
     ![](./media/new/d6.png)
@@ -71,7 +71,7 @@ In this task, you will explore different flow types in Microsoft Foundry by sett
 
 1. Paste **Azure OpenAI Service endpoint** copied earlier in the exercise besides `AOI_ENDPOINT`.
 
-    >**Note**:- Ensure that every value in the **appsettings.json** file is enclosed in **double quotes (")**.
+    >**Note**:- Ensure that every value in the **appsettings.json** file is enclosed in **double quotes ("")**.
 
     >**Note**:- Make sure to remove the "/" from the endpoint.
 
@@ -203,7 +203,7 @@ In this task, you will explore different flow types in Microsoft Foundry by upda
 
     ![](./media/new/e1.png)
 
-1. Add the following code in the `// Your code goes here(Line no. 92)` (1) section of the file.
+1. Add the following code in the `// Your code goes here` in the **Line no. 92** section of the file.
 
     ```
     chatHistory.AddUserMessage(userMessage);
@@ -242,7 +242,11 @@ In this task, you will explore different flow types in Microsoft Foundry by upda
     dotnet run
     ```
     
-1. Open a new tab in the browser and navigate to the link for **blazor-aichat**, i.e. **https://localhost:7118/**.
+1. Open a new tab in the browser and navigate to the below link for **blazor-aichat**
+
+    ```
+    https://localhost:7118/
+    ```
 
     >**Note**: If you receive security warnings in the browser, close the browser and follow the link again.
 

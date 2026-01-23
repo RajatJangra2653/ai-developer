@@ -138,7 +138,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     ![](./media/new/t1.png)
 
-    >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes (")**.
+    >Note:- Ensure that every value in the **.env** file is enclosed in **double quotes ("")**.
 
 1. Save the file.
 
@@ -567,7 +567,11 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     dotnet run
     ```
 
-1. Open a new tab in the browser and navigate to the link for **blazor-aichat**, i.e. **https://localhost:7118/**.
+1. Open a new tab in the browser and navigate to the below link for **blazor-aichat**
+
+    ```
+    https://localhost:7118/
+    ```
 
 1. Submit the following prompt and see how the AI responds:
 

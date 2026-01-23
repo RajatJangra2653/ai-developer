@@ -109,12 +109,16 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 <details>
 <summary><strong>C Sharp(C#)</strong></summary>
 
-1. You can review the OpenAPI spec in the following path `http://localhost:5115/swagger/v1/swagger.json`.
-
+1. You can review the OpenAPI spec in the following path:
+    ```
+    http://localhost:5115/swagger/v1/swagger.json
+    ```
     ![](./media/image_079.png)
 
-1. The swagger page can be found at `http://localhost:5115/swagger/index.html`.
-
+1. The swagger page can be found in the below link 
+    ```
+    http://localhost:5115/swagger/index.html
+    ```
     ![](./media/image_080.png)
 
 1. Navigate to `Dotnet>src>BlazorAI>Components>Pages` directory and open **Chat.razor.cs** file.
@@ -158,7 +162,12 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     ```
     dotnet run
     ```
-1. Open a new tab in the browser and navigate to the link for **blazor-aichat**, i.e. **https://localhost:7118/**.
+1. Open a new tab in the browser and navigate to the below link for **blazor-aichat**
+
+    ```
+    https://localhost:7118/
+    ```
+
     >**Note**: If you receive security warnings in the browser, close the browser and follow the link again.
 
 1. Submit the following prompt and see how the AI responds:
