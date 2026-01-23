@@ -41,6 +41,7 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 1. Navigate to `Python>src>plugins` directory, right click on **Plugins(1)** then click on **New file(2)** and then create a new file named **time_plugin.py**.
 
     ![](./media/new/E3T2S1.png)
+
     ![](./media/new/f4.png)
 
 1. Add the following code to the file:
@@ -171,7 +172,9 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 1. Navigate to `Dotnet>src>BlazorAI>Plugins` directory, right click on **Plugins(1)** then click on **New file(2)** and then  and create a new file named **TimePlugin.cs**.
 
     ![](./media/E3T2S1CS.png)
+    
     ![](./media/image_049.png)
+
 1. Add the following code to the file:
     ```
     using System;
@@ -538,7 +541,6 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     ```
     https://localhost:7118/
     ```
-
 
 1. Submit the following prompt:
 
