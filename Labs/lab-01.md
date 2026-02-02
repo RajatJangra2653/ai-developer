@@ -52,21 +52,27 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     ![](./media/new/a1.png)
 
-1. From the left navigation pane, expand **Use with Foundry (1)**, select **AI Hubs (2)**, open the **Create (3)** drop-down, and click **Hub (4)**.
+1. From the left navigation pane, expand **Use with Foundry (1)**, select **Foundry (2)**, and click on **+ Create (3)** button.
 
-    ![](./media/new/a2.png)
+    ![](./media/new/a2-1.png)
 
-1. On the **Azure AI hub** page, provide the following details and then click on **Review+create (5)**:
+1. On the **Create a Foundry Resource** page, provide the following details and then click on **Next (6)** to navigate to the **Storage** Page:
 
     - **Subscription**: Leave the default one **(1)**
 
     - **Resource group:** Select **ai-foundry-<inject key="Deployment ID" enableCopy="false"></inject> (2)**
 
-    - **Region:** Select **<inject key="Region" enableCopy="false"></inject> (3)**
+    - **Name:** Enter **ai-foundry-<inject key="Deployment ID" enableCopy="false"></inject> (3)**
 
-    - **Name:** Enter **ai-foundry-hub-<inject key="Deployment ID" enableCopy="false"></inject> (4)**
+    - **Region:** Select **<inject key="Region" enableCopy="false"></inject> (4)**
 
-      ![](./media/new/a3.png)
+    - **Default project name:** Enter **proj-<inject key="Deployment ID" enableCopy="false"></inject> (5)**
+
+      ![](./media/new/a3-1.png)
+
+1. On the **Create a Foundry Resource: Storage** page, click on **Select Storage Account (1)**, keep the settings default, select **Add (2)**, and click on **Review + create (3)**
+
+    ![](./media/new/a3-2.png)
 
 1. Once the Validation passed, click on **Create**.
 
