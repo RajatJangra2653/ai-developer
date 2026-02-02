@@ -76,11 +76,11 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. Once the Validation passed, click on **Create**.
 
-    ![](./media/new/a4.png)
+    ![](./media/new/a4-1.png)
 
 1. Once the deployment is completed, click on **Go to resource**.
 
-    ![](./media/new/a5.png)
+    ![](./media/new/a5-1.png)
 
 1. From the **Overview** page of the **Azure AI hub**, click **Launch Azure AI Foundry** to open the Foundry workspace.
 
