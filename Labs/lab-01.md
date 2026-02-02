@@ -88,33 +88,15 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
 1. From the left navigation pane, select **Model + endpoints (1)**, then click on **+ Deploy model (2)** drop-down and click **Deploy base model (3)**.
 
-    ![](./media/new/a8.png)
+    ![](./media/new/a8-1.png)
 
 1. Search for **gpt-4o (1)**, select the **gpt-4o** model **(2)**, and click on **Confirm (3)**.
 
     ![](./media/new/a9.png)
 
-1. On the **Deploy gpt-4o** blade, click on **Customize** and configure the required deployment settings as specified below:
+1. On the **Deploy gpt-4o** blade, click on **Deploy (1)**.
 
-    - **Deployment type**: Choose **Standard (1)** 
-    
-    - **Model version**: Select **2024-08-06 (Default) (2)**
-
-    - **Tokens per Minute Rate Limit**: Limit to **50K (3)** (You can use keyboard arrows to increase or decrease the value)
-
-    - Click on **Connect and deploy (4)**
-
-      ![](./media/new/b1.png) 
-
-1. From the top, click on **Microsoft Foundry**.
-
-    ![](./media/new/b2.png) 
-
-1. Select the listed **aifoundryhubxxxxxx** resource to continue working in **Microsoft Foundry**.
-
-    ![](./media/new/b3.png)
-
-     >**Note**: **xxxxx** refers to randomly generated suffix.
+      ![](./media/new/b1-1.png) 
 
 1. From left navigation pane, select **Model + endpoints (1)** from the **My assets** section, then select **gpt-4o (2)** model and the click on **Open in Playground (3)**.
 
