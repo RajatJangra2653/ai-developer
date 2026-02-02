@@ -36,7 +36,7 @@ In this task ,you will create an Azure AI Search resource.
 
     - Pricing tier: Select **Standard (5)**
 
-        >**Note:** In case you do not see the Standard tier, it means that the region selected does not have the Standard tier available right now. Please select another region and deploy the resource.
+        >**Note:** If you don’t see the Standard tier, it means it’s not available in the selected region. Please switch to another region where the Standard tier is supported.
 
       ![](./media/new/aisearch-1401.png)
 
