@@ -82,9 +82,9 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
 
     ![](./media/new/a5-1.png)
 
-1. From the **Overview** page of the **Azure AI hub**, click **Launch Azure AI Foundry** to open the Foundry workspace.
+1. From the **Overview** page of the **Foundry**, click **Go to Foundry portal** to open the Foundry workspace.
 
-    ![](./media/new/a6.png)
+    ![](./media/new/a6-1.png)
 
 1. From the left navigation pane, select **Model + endpoints (1)**, then click on **+ Deploy model (2)** drop-down and click **Deploy base model (3)**.
 
