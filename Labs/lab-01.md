@@ -63,7 +63,6 @@ In this task, you will explore different flow types in Microsoft Foundry by crea
     - **Resource group:** Select **ai-foundry-<inject key="Deployment ID" enableCopy="false"></inject> (2)**
 
     - **Region:** Select **<inject key="Region" enableCopy="false"></inject> (3)**
-        >**Note:** Ensure to select the same region used while creating the Azure AI Search resource.
 
     - **Name:** Enter **ai-foundry-hub-<inject key="Deployment ID" enableCopy="false"></inject> (4)**
 
