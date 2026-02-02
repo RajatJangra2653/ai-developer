@@ -2,42 +2,42 @@
   {
     "Name": "Azure AI Foundry and Semantic Kernel Fundamentals",
     "Language": "English",
-    "BaseURL": "https://github.com/CloudLabsAI-Azure/ai-developer/tree/prod",
+    "BaseURL": "https://github.com/CloudLabsAI-Azure/ai-developer/tree/stage",
     "Files": [
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/prod/Labs/getting-started.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/stage/Labs/getting-started.md",
         "Order": 1
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/prod/Labs/lab-01.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/stage/Labs/lab-01.md",
         "Order": 2
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/prod/Labs/lab-02.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/stage/Labs/lab-02.md",
         "Order": 3
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/prod/Labs/lab-03.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/stage/Labs/lab-03.md",
         "Order": 4
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/prod/Labs/lab-04.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/stage/Labs/lab-04.md",
         "Order": 5
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/prod/Labs/lab-05.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/stage/Labs/lab-05.md",
         "Order": 6
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/prod/Labs/lab-06.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/stage/Labs/lab-06.md",
         "Order": 7
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/prod/Labs/lab-07.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/stage/Labs/lab-07.md",
         "Order": 8
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/prod/Labs/lab-08.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-developer/stage/Labs/lab-08.md",
         "Order": 9
       }
     ]
